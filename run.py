@@ -46,7 +46,7 @@
 
 import cmd # imports command functions -> NOT USED ATM
 import textwrap # displays text in wraps -> NOT USED ATM
-import sys # imports system functions -> used here for "exit" command to close game
+import sys # imports system functions -> used here for "exit" command to close game DOES NOT WORK WITH HEROKU!
 import os # imports operating systems functions -> used here for "cls" command in windows (NO "clear command used for Apple")
 import time # imports time related functions -> used here for text output delay time
 import random # randomizer -> used here for randomize encounters
@@ -87,7 +87,7 @@ def title_screen_selections():
             sys.exit() # system function to exit program
 
 def title_screen():
-    os.system("cls") #clear output window
+    os.system("clear") #clear output window
     print("                                                                                ")
     print("    Welcome to:                                                                 ")
     print("                                                                                ")
@@ -158,7 +158,7 @@ solved_cases = {"c01": False, "c02": False, "c03": False, "c04": False, "c05": F
 #### SETUP ####
 
 def setup_game():
-    os.system("cls") # cls for windows "clear" for mac
+    os.system("clear") # cls for windows "clear" for mac
 
     ### NAME ###
     setup_01 = "What is your name rookie?\n" # not print because everything will come naturally
