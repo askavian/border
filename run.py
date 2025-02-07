@@ -184,12 +184,10 @@ def setup_game():
     valid_lod = ["hard", "medium", "easy"]
     if player_lod.lower() in valid_lod:
         myPlayer.lod = player_lod
-        print("You have " + myPlayer.time + " minutes remaining until the end of your shift!\n")
     while player_lod.lower() not in valid_lod:
         player_lod = input("> ")
         if player_lod.lower() in valid_lod:
             myPlayer.lod = player_lod
-            print("You have " + myPlayer.time + " minutes remaining until the end of your shift!\n")
 
 
     #### PLAYER STATS ####
@@ -199,12 +197,20 @@ def setup_game():
         myPlayer.time = 45
     elif myPlayer.lod == "easy":
         myPlayer.time = 60
+    
+    print("You have " + str(myPlayer.time) + " minutes remaining until the end of your shift!\n")
+
+title_screen() # actually initiates the game, starts the title screen defined above
+
+
+
+
+
 
 
 
 
 #### TESTPRINTS #### remove later
-print(myPlayer.time)
 print(myPlayer.name)
 print(myPlayer.lod)
 print(myPlayer.time)
@@ -212,20 +218,6 @@ print(myPlayer.score)
 print(myPlayer.people) # change people to cases_open
 print(myPlayer.currentcase)
 print(myPlayer.game_over)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #### TESTING SCREENS
