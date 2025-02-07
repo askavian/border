@@ -57,9 +57,11 @@ screen_width = 100 # sets output window to full screen 100% width CHECK IF ISSUE
 class player:
     def __init__(self):
         self.name = "" # set by player input
+        self.lod = None # Difficulty Level
         self.time = 0 # changes with difficulty level hard = 30 min / medium = 45 min / easy = 60 min
         self.score = 0 # Score between 0 and 100
         self.people = 0 # people left in the queue
+        self.currentcase = "c01"
         self.game_over = False # primary game condition
 myPlayer = player() # sets myPlayer to player class
 
@@ -153,11 +155,63 @@ solved_cases = {"c01": False, "c02": False, "c03": False, "c04": False, "c05": F
 
 
 
+#### SETUP ####
+
+def setup_game():
+    os.system("cls") # cls for windows "clear" for mac
+
+    ### NAME ###
+    setup_01 = "What is your name rookie?\n" # not print because everything will come naturally
+    for character in setup_01:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05) # gives delay to input of 5 miliseconds
+    player_name = input("> ") # could directly write to myPlayer.name, but keep it seperated to eventually add functionality later
+    myPlayer.name = player_name
+
+    ### DIFFICULTY LEVEL LOD ###
+    setup_02 = "Select your difficulty level!\n" # not print because everything will come naturally
+    setup_02_added = "(You can play on 'hard', 'medium' or 'easy')\n"
+    for character in setup_02:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05) # gives delay to input of 5 miliseconds
+    for character in setup_02_added:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.01) # gives delay to input of 1 miliseconds
+    player_lod = input("> ") # I could directly write to "myPlayer.lod" but keep it seperated to eventually add functionality later
+    valid_lod = ["hard", "medium", "easy"]
+    if player_lod.lower() in valid_lod:
+        myPlayer.lod = player_lod
+        print("You have " + myPlayer.time + " minutes remaining until the end of your shift!\n")
+    while player_lod.lower() not in valid_lod:
+        player_lod = input("> ")
+        if player_lod.lower() in valid_lod:
+            myPlayer.lod = player_lod
+            print("You have " + myPlayer.time + " minutes remaining until the end of your shift!\n")
+
+
+    #### PLAYER STATS ####
+    if myPlayer.lod == "hard": # USE FOR TIME REMAINING
+        myPlayer.time = 30
+    elif myPlayer.lod == "medium":
+        myPlayer.time = 45
+    elif myPlayer.lod == "easy":
+        myPlayer.time = 60
 
 
 
 
-
+#### TESTPRINTS #### remove later
+print(myPlayer.time)
+print(myPlayer.name)
+print(myPlayer.lod)
+print(myPlayer.time)
+print(myPlayer.score)
+print(myPlayer.people) # change people to cases_open
+print(myPlayer.currentcase)
+print(myPlayer.game_over)
 
 
 
