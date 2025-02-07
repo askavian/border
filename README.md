@@ -1,3 +1,6 @@
+
+## Live Project
+
 https://bordercrossing-840fd789a5e7.herokuapp.com/
 
 
@@ -12,7 +15,10 @@ https://bordercrossing-840fd789a5e7.herokuapp.com/
 
 
 
+## Credits
 
+ASCII Code Generator for Logo https://patorjk.com/software/taag/
+bbtong's text rpg for inspiration (especially visually): https://github.com/bbtong/python-text-rpg/blob/master/exampleTextRPG.py
 
 
 
