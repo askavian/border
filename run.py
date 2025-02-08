@@ -260,10 +260,38 @@ def print_currentcase():
     print("# " + casemap
           [myPlayer.currentcase] [introduction])
 
+def prompt():  
+    print("\n" + "===================")
+    print("What would you like to do?")
+    action = input("> ")
+    acceptable_actions = ["luggage", "search", "question", "approve", "deny", "quit"]
+    while action.lower() not in acceptable_actions:
+        print("Unkonw action, try again.\n")
+        action = input("> ")
+    if action.lower() == "quit":
+        sys.exit()
+    elif action.lower() == "luggage":
+        print("# " + casemap
+          [myPlayer.currentcase] [luggage])
+    elif action.lower() == "search":
+        print("# " + casemap
+          [myPlayer.currentcase] [search])
+    elif action.lower() == "question":
+        print("# " + casemap
+          [myPlayer.currentcase] [question])
+    elif action.lower() == "deny":
+        print("# " + casemap
+          [myPlayer.currentcase] [deny])
+    elif action.lower() == "approve":
+        print("# " + casemap
+          [myPlayer.currentcase] [approve])
+
+
 #### GAME FUNCTIONALITY ####
 def main_game_loop():
     while myPlayer.game_over is False:
         print_currentcase()
+        prompt()
 
 #### SETUP ####
 
