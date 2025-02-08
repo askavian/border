@@ -253,7 +253,17 @@ casemap = {
     },
 }
 
+#### GAME INTERACTIVITY ####
+def print_currentcase():
+    print("\n" + ("#" * (4 + len(myPlayer.currentcase)))) # "\n" prints everything on a new line / make # x 4 len(myPlayer.currentcase) gets the LENGTH OF THE STRING of location
+    print("REQUEST FOR ENTRY: ")
+    print("# " + casemap
+          [myPlayer.currentcase] [introduction])
 
+#### GAME FUNCTIONALITY ####
+def main_game_loop():
+    while myPlayer.game_over is False:
+        print_currentcase()
 
 #### SETUP ####
 
@@ -300,7 +310,15 @@ def setup_game():
     
     print("You have " + str(myPlayer.time) + " minutes remaining until the end of your shift!\n")
 
-title_screen() # actually initiates the game, starts the title screen defined above
+
+    #### STARTS GAME AFTER SETUP ####
+    os.system("clear") 
+    print("########################")
+    print("#   Let's Start now!   #")
+    print("########################")
+    main_game_loop()
+
+title_screen() # launches the game and setup
 
 
 
