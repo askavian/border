@@ -46,8 +46,8 @@
 
 import cmd # imports command functions -> NOT USED ATM
 import textwrap # displays text in wraps -> NOT USED ATM
-import sys # imports system functions -> used here for "exit" command to close game DOES NOT WORK WITH HEROKU!
-import os # imports operating systems functions -> used here for "cls" command in windows (NO "clear command used for Apple")
+import sys # imports system functions -> used here for "exit" command to close game
+import os # imports operating systems functions -> used here for "clear" command NOT "cls" for Heroku
 import time # imports time related functions -> used here for text output delay time
 import random # randomizer -> used here for randomize encounters
 
@@ -87,7 +87,7 @@ def title_screen_selections():
             sys.exit() # system function to exit program
 
 def title_screen():
-    os.system("clear") #clear output window
+    os.system("clear")
     print("                                                                                ")
     print("    Welcome to:                                                                 ")
     print("                                                                                ")
@@ -141,24 +141,110 @@ def help_menu():
 #### CASES OPTIONS ####
 
 case = ""
+introduction = "introduction text" #personal data and passport
 luggage = "luggage" # to examine the belongings of an individual
 search = "search" # to stripsearch an
 question = "question" # to inquire about the reasons for enter 
 approve = "approve" # approves the request and let the individual pass the border
 deny = "deny" # deny the entry request and prevents the individual from entering 
 solved = False # sets a boolean for if a case has already been closed
+condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+good_outcome = "good outcome" # text for good outcome
+bad_outcome = "bad outcome" # text for bad outcome
+secret_outcome = "secret outcome" # text for secret outcome
+next_case = "next" # next case in line
 
 
-#### CASE DICTONARY ####
+#### CASE DICTONARY AS KEY VALUE####
 solved_cases = {"c01": False, "c02": False, "c03": False, "c04": False, "c05": False}
 # dictionary can be expanded or used for shuffel
+
+#### CASEMAP ####
+
+casemap = {
+    "c01": {
+        case: "c01 name",
+        introduction: "c01 intro",
+        luggage: "c01 luggage",
+        search: "c01 search",
+        question: "c01 question", 
+        approve: "c01 approve",
+        deny: "c01 deny", 
+        solved: False,
+        condition: 0,
+        good_outcome: "c01 good outcome",
+        bad_outcome: "c01 bad outcome",
+        secret_outcome: "c01 secret outcome",
+        next_case: "c02",
+    },
+    "c02": {
+        case: "c02 name",
+        introduction: "c02 intro",
+        luggage: "c02 luggage",
+        search: "c02 search",
+        question: "c02 question", 
+        approve: "c02 approve",
+        deny: "c02 deny", 
+        solved: False,
+        condition: 0,
+        good_outcome: "c02 good outcome",
+        bad_outcome: "c02 bad outcome",
+        secret_outcome: "c02 secret outcome",
+        next_case: "c03",
+    },
+    "c03": {
+        case: "c03 name",
+        introduction: "c03 intro",
+        luggage: "c03 luggage",
+        search: "c03 search",
+        question: "c03 question", 
+        approve: "c03 approve",
+        deny: "c03 deny", 
+        solved: False,
+        condition: 0,
+        good_outcome: "c03 good outcome",
+        bad_outcome: "c03 bad outcome",
+        secret_outcome: "c03 secret outcome",
+        next_case: "c04",
+    },
+        "c04": {
+        case: "c04 name",
+        introduction: "c04 intro",
+        luggage: "c04 luggage",
+        search: "c04 search",
+        question: "c04 question", 
+        approve: "c04 approve",
+        deny: "c04 deny", 
+        solved: False,
+        condition: 0,
+        good_outcome: "c04 good outcome",
+        bad_outcome: "c04 bad outcome",
+        secret_outcome: "c04 secret outcome",        
+        next_case: "c05",
+    },
+        "c05": {
+        case: "c05 name",
+        introduction: "c05 intro",
+        luggage: "c05 luggage",
+        search: "c05 search",
+        question: "c05 question", 
+        approve: "c05 approve",
+        deny: "c05 deny", 
+        solved: False,
+        condition: 0,
+        good_outcome: "c05 good outcome",
+        bad_outcome: "c05 bad outcome",
+        secret_outcome: "c05 secret outcome",
+        next_case: "",
+    },
+}
 
 
 
 #### SETUP ####
 
 def setup_game():
-    os.system("clear") # cls for windows "clear" for mac
+    os.system("clear")
 
     ### NAME ###
     setup_01 = "What is your name rookie?\n" # not print because everything will come naturally
@@ -247,6 +333,9 @@ print("#22                                                                      
 print("#23                                                                            #")  
 print("#24#############################################################################")
 
+
+
+# DO NOT USE looks wierd 
 print("""
 #1##############################################################################
 #2                                                                             #
