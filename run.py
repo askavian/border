@@ -149,8 +149,11 @@ approve = "approve" # approves the request and let the individual pass the borde
 deny = "deny" # deny the entry request and prevents the individual from entering 
 solved = False # sets a boolean for if a case has already been closed
 condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+good_condition = "" # needs to be equal to DENY or APPROVE
 good_outcome = "good outcome" # text for good outcome
+bad_condition = "" # needs to be equal to DENY or APPROVE
 bad_outcome = "bad outcome" # text for bad outcome
+secret_condition = "" # needs to be equal to LUGGAGE or QUESTION or SEARCH
 secret_outcome = "secret outcome" # text for secret outcome
 next_case = "next" # next case in line
 
@@ -172,8 +175,11 @@ casemap = {
         deny: "c01 deny", 
         solved: False,
         condition: 0,
+        good_condition: deny, 
         good_outcome: "c01 good outcome",
+        bad_condition: approve,
         bad_outcome: "c01 bad outcome",
+        secret_condition: search,
         secret_outcome: "c01 secret outcome",
         next_case: "c02",
     },
@@ -188,7 +194,9 @@ casemap = {
         solved: False,
         condition: 0,
         good_outcome: "c02 good outcome",
+        bad_condition: approve,
         bad_outcome: "c02 bad outcome",
+        secret_condition: None,
         secret_outcome: "c02 secret outcome",
         next_case: "c03",
     },
@@ -203,7 +211,9 @@ casemap = {
         solved: False,
         condition: 0,
         good_outcome: "c03 good outcome",
+        bad_condition: approve,
         bad_outcome: "c03 bad outcome",
+        secret_condition: None,
         secret_outcome: "c03 secret outcome",
         next_case: "c04",
     },
@@ -218,8 +228,10 @@ casemap = {
         solved: False,
         condition: 0,
         good_outcome: "c04 good outcome",
+        bad_condition: approve,
         bad_outcome: "c04 bad outcome",
-        secret_outcome: "c04 secret outcome",        
+        secret_condition: None,
+        secret_outcome: "c04 secret outcome",      
         next_case: "c05",
     },
         "c05": {
@@ -233,7 +245,9 @@ casemap = {
         solved: False,
         condition: 0,
         good_outcome: "c05 good outcome",
+        bad_condition: approve,
         bad_outcome: "c05 bad outcome",
+        secret_condition: None,
         secret_outcome: "c05 secret outcome",
         next_case: "",
     },
