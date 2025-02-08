@@ -271,18 +271,23 @@ def prompt():
     if action.lower() == "quit":
         sys.exit()
     elif action.lower() == "luggage":
+        myPlayer.time = myPlayer.time - 8
         print("# " + casemap
           [myPlayer.currentcase] [luggage])
     elif action.lower() == "search":
+        myPlayer.time = myPlayer.time - 10
         print("# " + casemap
           [myPlayer.currentcase] [search])
     elif action.lower() == "question":
+        myPlayer.time = myPlayer.time - 5
         print("# " + casemap
           [myPlayer.currentcase] [question])
     elif action.lower() == "deny":
+        myPlayer.time = myPlayer.time - 2
         print("# " + casemap
           [myPlayer.currentcase] [deny])
     elif action.lower() == "approve":
+        myPlayer.time = myPlayer.time - 1
         print("# " + casemap
           [myPlayer.currentcase] [approve])
 
@@ -290,8 +295,14 @@ def prompt():
 #### GAME FUNCTIONALITY ####
 def main_game_loop():
     while myPlayer.game_over is False:
+        print("You have " + str(myPlayer.time) + " minutes remaining until the end of your shift!\n")        
         print_currentcase()
         prompt()
+        if myPlayer.time < 0: # FAILING CONDITION "run out of time"
+            myPlayer.game_over
+            print("You ran out of time! You lost the game!")
+            sys.exit()
+
 
 #### SETUP ####
 
