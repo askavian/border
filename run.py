@@ -170,77 +170,76 @@ nextcase = "NEXT" # next case in line
 
 casemap = {
     "c01": {
-        case: "Lanto Blorg",
-        introduction: 
-        """
-        Name: Lanto Blorg
-        Date of Birth: Dec.11th, 1999
-        Sex: Male
-        #24#####################################################################
-        The passport was recently issued and shows no obvious signs of damage or 
-        manipulation.
-        You recognize the person in front of you as the same person shown on the
-        passport photo. 
-        The eyes are the same; the shape of the ears is the same and you 
-        recognize a birthmark beneath the left eye.
+    case: "Lanto Blorg",
+    introduction: """
+    Name: Lanto Blorg
+    Date of Birth: Dec.11th, 1999
+    Sex: Male
+    #24#####################################################################
+    The passport was recently issued and shows no obvious signs of damage or 
+    manipulation.
+    You recognize the person in front of you as the same person shown on the
+    passport photo. 
+    The eyes are the same; the shape of the ears is the same and you 
+    recognize a birthmark beneath the left eye.
 
-        However, in his passport, the person has a full beard and hair. The man 
-        in front of you is bald and fully shaven.      
-        """,
-        luggage: """
-        You go through Lanto's luggage and find:
-        # A few personal belongings. Among them a picture of his family and a religious object. 
-        # Clothing items that are in remarkable condition (brand new). But the amount of clothing seems off. There is only one pair of underwear, but five shirts and two pair of suit pants. 
-        # No fluids, alcohol or any other contraband. 
+    However, in his passport, the person has a full beard and hair. The man 
+    in front of you is bald and fully shaven.      
+    """,
+    luggage: """
+    You go through Lanto's luggage and find:
+    # A few personal belongings. Among them a picture of his family and a religious object. 
+    # Clothing items that are in remarkable condition (brand new). But the amount of clothing seems off. There is only one pair of underwear, but five shirts and two pair of suit pants. 
+    # No fluids, alcohol or any other contraband. 
 
-        There is no contraband in Lanto's suitcase or any other illegal items.
-        """,
-        luggagecondition: 0,
-        search: """
-        You perform a full check on Lanto and his belonging. 
+    There is no contraband in Lanto's suitcase or any other illegal items.
+    """,
+    luggagecondition: 0,
+    search: """
+    You perform a full check on Lanto and his belonging. 
                   
-        You find 2kg of C4 inside a suicide vest underneath his shirt and a detailed list of a planned attack in the city.
-                  
-        Lanto is arrested!
-        """,
-        searchcondition: 3,
-        question: """
-        At first, Lanto is hestitant to answer your questions, but after a while he opens up. 
-        Lanto plans on staying at least two weeks in the city. 
+    You find 2kg of C4 inside a suicide vest underneath his shirt and a detailed list of a planned attack in the city.
+               
+    Lanto is arrested!
+    """,
+    searchcondition: 3,
+    question: """
+    At first, Lanto is hestitant to answer your questions, but after a while he opens up. 
+    Lanto plans on staying at least two weeks in the city. 
         
-        His plans are to search for his family that got seperated during the war. 
-        Unfortunately, he has no place to stay yet and no Hotel Reservation. This is odd, because usually, people are booking 
-        their accomodation way in advance within a secure Hotel with Security when visiting.
-        """, 
-        questioncondition: 0,
-        approve: """
-        Lanto Blorg passes through the border crossing uninterrupted.
-        """,
-        approvecondition: 2,
-        deny: """
-        Lanto Blorg is shouting about racial profiling and why you refuse him. 
-        But ultimately he leaves the border crossing and returns home.
-        """,
-        denycondition: 1, 
-        solved: False,
-        condition: 0,
-        goodoutcome: """
-        A would-be suicide attacker was rejected today at the border crossing. The man was later identified as Lanto Blorg.
-        He tried to cross the border but was rejected. On his way back home his sucide vest went off killing only him.
-        """,
-        goodcondition: False,
-        badoutcome: """
-        A Terrorist Attack happend on a public bus this afternoon, killing 15 and injuring 7, including children. 
-        The individual was later identified as Lanto Blorg and was able to pass the border uniterrupted while carrying a suicide vest. 
-        """,
-        badcondition: False,
-        secretoutcome: """
-        A Terrorist Attack was prevented today thanks to a new border guard officer on his first day of duty!
-        While searching the would-be terrorist, identified as Lanto Blorg, the guard noticed a suicide vest. 
-        The guard took immediate action and in such prevented a disaster.
-        """,
-        secretcondition: False,
-        nextcase: "c02",
+    His plans are to search for his family that got seperated during the war. 
+    Unfortunately, he has no place to stay yet and no Hotel Reservation. This is odd, because usually, people are booking 
+    their accomodation way in advance within a secure Hotel with Security when visiting.
+    """, 
+    questioncondition: 0,
+    approve: """
+    Lanto Blorg passes through the border crossing uninterrupted.
+    """,
+    approvecondition: 2,
+    deny: """
+    Lanto Blorg is shouting about racial profiling and why you refuse him. 
+    But ultimately he leaves the border crossing and returns home.
+    """,
+    denycondition: 1, 
+    solved: False,
+    condition: 0,
+    goodoutcome: """
+    A would-be suicide attacker was rejected today at the border crossing. The man was later identified as Lanto Blorg.
+    He tried to cross the border but was rejected. On his way back home his sucide vest went off killing only him.
+    """,
+    goodcondition: False,
+    badoutcome: """
+    A Terrorist Attack happend on a public bus this afternoon, killing 15 and injuring 7, including children. 
+    The individual was later identified as Lanto Blorg and was able to pass the border uniterrupted while carrying a suicide vest. 
+    """,
+    badcondition: False,
+    secretoutcome: """
+    A Terrorist Attack was prevented today thanks to a new border guard officer on his first day of duty!
+    While searching the would-be terrorist, identified as Lanto Blorg, the guard noticed a suicide vest. 
+    The guard took immediate action and in such prevented a disaster.
+    """,
+    secretcondition: False,
+    nextcase: "c02",
     },
     "c02": {
         case: "Dammyra de Brillaal",
