@@ -203,9 +203,9 @@ casemap = {
         question: "c02 question",
         questioncondition: 0, 
         approve: "c02 approve",
-        approvecondition: 0,
+        approvecondition: 1,
         deny: "c02 deny", 
-        denycondition: 0,
+        denycondition: 2,
         solved: False,
         condition: 0,
         goodoutcome: "c02 good outcome",
@@ -226,9 +226,9 @@ casemap = {
         question: "c03 question",
         questioncondition: 0, 
         approve: "c03 approve",
-        approvecondition: 0,
+        approvecondition: 1,
         deny: "c03 deny", 
-        denycondition: 0,
+        denycondition: 2,
         solved: False,
         condition: 0,
         goodoutcome: "c03 good outcome",
@@ -249,9 +249,9 @@ casemap = {
         question: "c04 question",
         questioncondition: 0, 
         approve: "c04 approve",
-        approvecondition: 0,
+        approvecondition: 1,
         deny: "c04 deny", 
-        denycondition: 0,
+        denycondition: 2,
         solved: False,
         condition: 0,
         goodoutcome: "c04 good outcome",
@@ -272,9 +272,9 @@ casemap = {
         question: "c05 question",
         questioncondition: 0, 
         approve: "c05 approve",
-        approvecondition: 0,
+        approvecondition: 1,
         deny: "c05 deny", 
-        denycondition: 0,
+        denycondition: 2,
         solved: False,
         condition: 0,
         goodoutcome: "c05 good outcome",
@@ -324,9 +324,10 @@ def player_luggage(action):
         sys.stdout.flush() 
         time.sleep(0.05)
     if casemap[myPlayer.currentcase] [luggagecondition] == 3:
+        casemap[myPlayer.currentcase] [condition] = 3
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [secretcondition] = True
-        myPlayer.people = myPlayer.people - 1
+        player_nextcase()
 
 def player_search(action):
     myPlayer.time = myPlayer.time - 12
@@ -336,9 +337,10 @@ def player_search(action):
         sys.stdout.flush() 
         time.sleep(0.05)
     if casemap[myPlayer.currentcase] [searchcondition] == 3:
+        casemap[myPlayer.currentcase] [condition] = 3
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [secretcondition] = True
-        myPlayer.people = myPlayer.people - 1
+        player_nextcase()
 
 def player_question(action):
     myPlayer.time = myPlayer.time - 5
@@ -348,9 +350,10 @@ def player_question(action):
         sys.stdout.flush() 
         time.sleep(0.05)
     if casemap[myPlayer.currentcase] [questioncondition] == 3:
+        casemap[myPlayer.currentcase] [condition] = 3
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [secretcondition] = True
-        myPlayer.people = myPlayer.people - 1
+        player_nextcase()
 
 def player_approve(action):
     myPlayer.time = myPlayer.time - 1
@@ -360,13 +363,15 @@ def player_approve(action):
         sys.stdout.flush() 
         time.sleep(0.05)
     if casemap[myPlayer.currentcase] [approvecondition] == 1:
+        casemap[myPlayer.currentcase] [condition] = 1
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [goodcondition] = True
-        myPlayer.people = myPlayer.people - 1
+        player_nextcase()
     elif casemap[myPlayer.currentcase] [approvecondition] == 2:
+        casemap[myPlayer.currentcase] [condition] = 2
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [badcondition] = True
-        myPlayer.people = myPlayer.people - 1
+        player_nextcase()
 
 def player_deny(action):
     myPlayer.time = myPlayer.time - 2
@@ -376,17 +381,22 @@ def player_deny(action):
         sys.stdout.flush() 
         time.sleep(0.05)
     if casemap[myPlayer.currentcase] [denycondition] == 1:
+        casemap[myPlayer.currentcase] [condition] = 1
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [goodcondition] = True
-        myPlayer.people = myPlayer.people - 1
+        player_nextcase
     elif casemap[myPlayer.currentcase] [denycondition] == 2:
+        casemap[myPlayer.currentcase] [condition] = 2
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [badcondition] = True
-        myPlayer.people = myPlayer.people - 1
+        player_nextcase()
 
 #def player_nextcase(nextcase)
 
-
+def player_nextcase():
+    os.system("clear")
+    myPlayer.people = myPlayer.people - 1
+    myPlayer.currentcase = casemap[myPlayer.currentcase] [nextcase]
 
 #### GAME FUNCTIONALITY ####
 def main_game_loop():
