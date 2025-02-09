@@ -288,7 +288,6 @@ casemap = {
 }
 #### GAME INTERACTIVITY ####
 def print_currentcase():
-    print(casemap)
     print("\n" + ("#" * (4 + len(myPlayer.currentcase)))) # "\n" prints everything on a new line / make # x 4 len(myPlayer.currentcase) gets the LENGTH OF THE STRING of location
     print("REQUEST FOR ENTRY: ")
     print("# " + casemap
@@ -391,12 +390,20 @@ def player_deny(action):
         casemap[myPlayer.currentcase] [badcondition] = True
         player_nextcase()
 
-#def player_nextcase(nextcase)
 
 def player_nextcase():
     os.system("clear")
     myPlayer.people = myPlayer.people - 1
-    myPlayer.currentcase = casemap[myPlayer.currentcase] [nextcase]
+    if myPlayer.people == 0:
+        final()
+    else:
+        myPlayer.currentcase = casemap[myPlayer.currentcase] [nextcase]
+
+
+def final():
+    print("Shift ended, good job!")
+    myPlayer.game_over = True
+
 
 #### GAME FUNCTIONALITY ####
 def main_game_loop():
@@ -469,21 +476,6 @@ def setup_game():
 title_screen() # launches the game and setup
 
 
-
-
-
-
-
-
-
-#### TESTPRINTS #### remove later
-print(myPlayer.name)
-print(myPlayer.lod)
-print(myPlayer.time)
-print(myPlayer.score)
-print(myPlayer.people) # change people to cases_open
-print(myPlayer.currentcase)
-print(myPlayer.game_over)
 
 
 #### TESTING SCREENS
