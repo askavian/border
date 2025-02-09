@@ -171,20 +171,21 @@ nextcase = "NEXT" # next case in line
 casemap = {
     "c01": {
         case: "Lanto Blorg",
-        introduction: """
+        introduction: 
+        """
         Name: Lanto Blorg
-        Date of Birth: Dec.11th 1999
+        Date of Birth: Dec.11th, 1999
         Sex: Male
-        #24#############################################################################
+        #24#####################################################################
         The passport was recently issued and shows no obvious signs of damage or 
         manipulation.
-        You recognize the person in front of you as the same person shown on the 
+        You recognize the person in front of you as the same person shown on the
         passport photo. 
-        The eyes are the same; the shape of the ears is the same and you recognize a 
-        birthmark beneath the left eye.
+        The eyes are the same; the shape of the ears is the same and you 
+        recognize a birthmark beneath the left eye.
 
-        However, in his passport, the person has a full beard and hair. The man in front
-        of you is bald and fully shaven.      
+        However, in his passport, the person has a full beard and hair. The man 
+        in front of you is bald and fully shaven.      
         """,
         luggage: """
         You go through Lanto's luggage and find:
