@@ -143,24 +143,24 @@ def help_menu():
 case = ""
 introduction = "introduction text" #personal data and passport
 luggage = "luggage" # to examine the belongings of an individual
-luggage_condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+luggagecondition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
 search = "search" # to stripsearch an
-search_condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+searchcondition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
 question = "question" # to inquire about the reasons for enter 
-question_condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+questioncondition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
 approve = "approve" # approves the request and let the individual pass the border
-approve_condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+approvecondition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
 deny = "deny" # deny the entry request and prevents the individual from entering 
-deny_condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+denycondition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
 solved = False # sets a boolean for if a case has already been closed
 condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-good_outcome = "good outcome" # text for good outcome
-good_condition = False # For storing outcome
-bad_outcome = "bad outcome" # text for bad outcome
-bad_condition = False # For storing outcome
-secret_outcome = "secret outcome" # text for secret outcome
-secret_condition = False # For storing outcome
-next_case = "next" # next case in line
+goodoutcome = "good outcome" # text for good outcome
+goodcondition = False # For storing outcome
+badoutcome = "bad outcome" # text for bad outcome
+badcondition = False # For storing outcome
+secretoutcome = "secret outcome" # text for secret outcome
+secretcondition = False # For storing outcome
+nextcase = "next" # next case in line
 
 
 #### CASE DICTONARY AS KEY VALUE####
@@ -174,121 +174,122 @@ casemap = {
         case: "c01 name",
         introduction: "c01 intro",
         luggage: "c01 luggage",
-        luggage_condition: 0,
+        luggagecondition: 0,
         search: "c01 search",
-        search_condition: 3,
+        searchcondition: 3,
         question: "c01 question", 
-        question_condition: 0,
+        questioncondition: 0,
         approve: "c01 approve",
-        approve_condition: 2,
+        approvecondition: 2,
         deny: "c01 deny",
-        deny_condition: 1, 
+        denycondition: 1, 
         solved: False,
         condition: 0,
-        good_outcome: "c01 good outcome",
-        good_condition: False,
-        bad_outcome: "c01 bad outcome",
-        bad_condition: False,
-        secret_outcome: "c01 secret outcome",
-        secret_condition: False,
-        next_case: "c02",
+        goodoutcome: "c01 good outcome",
+        goodcondition: False,
+        badoutcome: "c01 bad outcome",
+        badcondition: False,
+        secretoutcome: "c01 secret outcome",
+        secretcondition: False,
+        nextcase: "c02",
     },
     "c02": {
         case: "c02 name",
         introduction: "c02 intro",
         luggage: "c02 luggage",
-        luggage_condition: 0,
+        luggagecondition: 0,
         search: "c02 search",
-        search_condition: 0,
+        searchcondition: 0,
         question: "c02 question",
-        question_condition: 0, 
+        questioncondition: 0, 
         approve: "c02 approve",
-        approve_condition: 0,
+        approvecondition: 0,
         deny: "c02 deny", 
-        deny_condition: 0,
+        denycondition: 0,
         solved: False,
         condition: 0,
-        good_outcome: "c02 good outcome",
-        good_condition: False,
-        bad_outcome: "c02 bad outcome",
-        bad_condition: False,
-        secret_outcome: "c02 secret outcome",
-        secret_condition: False,
-        next_case: "c03",
+        goodoutcome: "c02 good outcome",
+        goodcondition: False,
+        badoutcome: "c02 bad outcome",
+        badcondition: False,
+        secretoutcome: "c02 secret outcome",
+        secretcondition: False,
+        nextcase: "c03",
     },
     "c03": {
         case: "c03 name",
         introduction: "c03 intro",
         luggage: "c03 luggage",
-        luggage_condition: 0,
+        luggagecondition: 0,
         search: "c03 search",
-        search_condition: 0,
+        searchcondition: 0,
         question: "c03 question",
-        question_condition: 0, 
+        questioncondition: 0, 
         approve: "c03 approve",
-        approve_condition: 0,
+        approvecondition: 0,
         deny: "c03 deny", 
-        deny_condition: 0,
+        denycondition: 0,
         solved: False,
         condition: 0,
-        good_outcome: "c03 good outcome",
-        good_condition: False,
-        bad_outcome: "c03 bad outcome",
-        bad_condition: False,
-        secret_outcome: "c03 secret outcome",
-        secret_condition: False,
-        next_case: "c04",
+        goodoutcome: "c03 good outcome",
+        goodcondition: False,
+        badoutcome: "c03 bad outcome",
+        badcondition: False,
+        secretoutcome: "c03 secret outcome",
+        secretcondition: False,
+        nextcase: "c04",
     },
         "c04": {
         case: "c04 name",
         introduction: "c04 intro",
         luggage: "c04 luggage",
-        luggage_condition: 0,
+        luggagecondition: 0,
         search: "c04 search",
-        search_condition: 0,
+        searchcondition: 0,
         question: "c04 question",
-        question_condition: 0, 
+        questioncondition: 0, 
         approve: "c04 approve",
-        approve_condition: 0,
+        approvecondition: 0,
         deny: "c04 deny", 
-        deny_condition: 0,
+        denycondition: 0,
         solved: False,
         condition: 0,
-        good_outcome: "c04 good outcome",
-        good_condition: False,
-        bad_outcome: "c04 bad outcome",
-        bad_condition: False,
-        secret_outcome: "c04 secret outcome",
-        secret_condition: False,      
-        next_case: "c05",
+        goodoutcome: "c04 good outcome",
+        goodcondition: False,
+        badoutcome: "c04 bad outcome",
+        badcondition: False,
+        secretoutcome: "c04 secret outcome",
+        secretcondition: False,      
+        nextcase: "c05",
     },
         "c05": {
         case: "c05 name",
         introduction: "c05 intro",
         luggage: "c05 luggage",
-        luggage_condition: 0,
+        luggagecondition: 0,
         search: "c05 search",
-        search_condition: 0,
+        searchcondition: 0,
         question: "c05 question",
-        question_condition: 0, 
+        questioncondition: 0, 
         approve: "c05 approve",
-        approve_condition: 0,
+        approvecondition: 0,
         deny: "c05 deny", 
-        deny_condition: 0,
+        denycondition: 0,
         solved: False,
         condition: 0,
-        good_outcome: "c05 good outcome",
-        good_condition: False,
-        bad_outcome: "c05 bad outcome",
-        bad_condition: False,
-        secret_outcome: "c05 secret outcome",
-        secret_condition: False,
-        next_case: "",
+        goodoutcome: "c05 good outcome",
+        goodcondition: False,
+        badoutcome: "c05 bad outcome",
+        badcondition: False,
+        secretoutcome: "c05 secret outcome",
+        secretcondition: False,
+        nextcase: "",
     },
 }
 
 #### GAME INTERACTIVITY ####
 def print_currentcase():
+    print(casemap[myPlayer.currentcase])
     print("\n" + ("#" * (4 + len(myPlayer.currentcase)))) # "\n" prints everything on a new line / make # x 4 len(myPlayer.currentcase) gets the LENGTH OF THE STRING of location
     print("REQUEST FOR ENTRY: ")
     print("# " + casemap
@@ -323,6 +324,10 @@ def player_luggage(action):
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
+    if casemap[myPlayer.currentcase] [luggagecondition] == 3:
+        casemap[myPlayer.currentcase] [solved] = True
+        casemap[myPlayer.currentcase] [secretcondition] = True
+        myPlayer.people = myPlayer.people - 1
 
 def player_search(action):
     myPlayer.time = myPlayer.time - 12
@@ -331,6 +336,10 @@ def player_search(action):
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
+    if casemap[myPlayer.currentcase] [searchcondition] == 3:
+        casemap[myPlayer.currentcase] [solved] = True
+        casemap[myPlayer.currentcase] [secretcondition] = True
+        myPlayer.people = myPlayer.people - 1
 
 def player_question(action):
     myPlayer.time = myPlayer.time - 5
@@ -339,6 +348,10 @@ def player_question(action):
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
+    if casemap[myPlayer.currentcase] [questioncondition] == 3:
+        casemap[myPlayer.currentcase] [solved] = True
+        casemap[myPlayer.currentcase] [secretcondition] = True
+        myPlayer.people = myPlayer.people - 1
 
 def player_approve(action):
     myPlayer.time = myPlayer.time - 1
@@ -347,6 +360,14 @@ def player_approve(action):
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
+    if casemap[myPlayer.currentcase] [approvecondition] == 1:
+        casemap[myPlayer.currentcase] [solved] = True
+        casemap[myPlayer.currentcase] [goodcondition] = True
+        myPlayer.people = myPlayer.people - 1
+    elif casemap[myPlayer.currentcase] [approvecondition] == 2:
+        casemap[myPlayer.currentcase] [solved] = True
+        casemap[myPlayer.currentcase] [badcondition] = True
+        myPlayer.people = myPlayer.people - 1
 
 def player_deny(action):
     myPlayer.time = myPlayer.time - 2
@@ -355,6 +376,16 @@ def player_deny(action):
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
+    if casemap[myPlayer.currentcase] [denycondition] == 1:
+        casemap[myPlayer.currentcase] [solved] = True
+        casemap[myPlayer.currentcase] [goodcondition] = True
+        myPlayer.people = myPlayer.people - 1
+    elif casemap[myPlayer.currentcase] [denycondition] == 2:
+        casemap[myPlayer.currentcase] [solved] = True
+        casemap[myPlayer.currentcase] [badcondition] = True
+        myPlayer.people = myPlayer.people - 1
+
+#def player_nextcase(nextcase)
 
 
 
