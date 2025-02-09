@@ -297,38 +297,65 @@ def print_currentcase():
 def prompt():  
     print("\n" + "===================")
     print("What would you like to do?")
-    print(casemap[myPlayer.currentcase] [secret_condition]) # FOR TESTING
-    print(casemap[myPlayer.currentcase] [solved]) # FOR TESTING
-    print(myPlayer.people)
     action = input("> ")
     acceptable_actions = ["luggage", "search", "question", "approve", "deny", "quit"]
     while action.lower() not in acceptable_actions:
         print("Unkonw action, try again.\n")
         action = input("> ")
     if action.lower() == "quit":
+        print("Goodbye! Reload the Game to try again.")
         sys.exit()
     elif action.lower() == "luggage":
-        myPlayer.time = myPlayer.time - 8
-        print("# " + casemap
-          [myPlayer.currentcase] [luggage])
+        player_luggage(action.lower())
     elif action.lower() == "search":
-        myPlayer.time = myPlayer.time - 10
-        print("# " + casemap[myPlayer.currentcase] [search])
-        while action.lower() == "search":
-            if casemap[myPlayer.currentcase] [search_condition] == 3: # BUGGY
-                print("This is true") # BUGGY
+        player_search(action.lower())
     elif action.lower() == "question":
-        myPlayer.time = myPlayer.time - 5
-        print("# " + casemap
-          [myPlayer.currentcase] [question])
+        player_question(action.lower())
     elif action.lower() == "deny":
-        myPlayer.time = myPlayer.time - 2
-        print("# " + casemap
-          [myPlayer.currentcase] [deny])
+        player_deny(action.lower())
     elif action.lower() == "approve":
-        myPlayer.time = myPlayer.time - 1
-        print("# " + casemap
-          [myPlayer.currentcase] [approve])
+        player_approve(action.lower())
+
+def player_luggage(action):
+    myPlayer.time = myPlayer.time - 8
+    speech = casemap[myPlayer.currentcase] [luggage]
+    for character in speech:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
+
+def player_search(action):
+    myPlayer.time = myPlayer.time - 12
+    speech = casemap[myPlayer.currentcase] [search]
+    for character in speech:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
+
+def player_question(action):
+    myPlayer.time = myPlayer.time - 5
+    speech = casemap[myPlayer.currentcase] [question]
+    for character in speech:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
+
+def player_approve(action):
+    myPlayer.time = myPlayer.time - 1
+    speech = casemap[myPlayer.currentcase] [approve]
+    for character in speech:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
+
+def player_deny(action):
+    myPlayer.time = myPlayer.time - 2
+    speech = casemap[myPlayer.currentcase] [deny]
+    for character in speech:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
+
 
 
 #### GAME FUNCTIONALITY ####
