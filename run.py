@@ -175,12 +175,16 @@ casemap = {
         Name: Lanto Blorg
         Date of Birth: Dec.11th 1999
         Sex: Male
+        #24#############################################################################
+        The passport was recently issued and shows no obvious signs of damage or 
+        manipulation.
+        You recognize the person in front of you as the same person shown on the 
+        passport photo. 
+        The eyes are the same; the shape of the ears is the same and you recognize a 
+        birthmark beneath the left eye.
 
-        The passport was recently issued and shows no obvious signs of damage or manipulation.
-        You recognize the person in front of you as the same person shown on the passport photo. 
-        The eyes are the same; the shape of the ears is the same and you recognize a birthmark beneath the left eye.
-
-        However, in his passport, the person has a full beard and hair. The man in front of you is bald and fully shaven.      
+        However, in his passport, the person has a full beard and hair. The man in front
+        of you is bald and fully shaven.      
         """,
         luggage: """
         You go through Lanto's luggage and find:
@@ -316,6 +320,7 @@ casemap = {
         """, 
         badcondition: False,
         secretoutcome: """
+        
         A woman
         """,
         secretcondition: False,
@@ -424,7 +429,7 @@ def prompt():
     elif action.lower() == "approve":
         player_approve(action.lower())
 
-def player_luggage():
+def player_luggage(action):
     myPlayer.time = myPlayer.time - 8
     speech = casemap[myPlayer.currentcase] [luggage]
     for character in speech:
@@ -437,7 +442,7 @@ def player_luggage():
         casemap[myPlayer.currentcase] [secretcondition] = True
         player_nextcase()
 
-def player_search():
+def player_search(action):
     myPlayer.time = myPlayer.time - 12
     speech = casemap[myPlayer.currentcase] [search]
     for character in speech:
@@ -450,7 +455,7 @@ def player_search():
         casemap[myPlayer.currentcase] [secretcondition] = True
         player_nextcase()
 
-def player_question():
+def player_question(action):
     myPlayer.time = myPlayer.time - 5
     speech = casemap[myPlayer.currentcase] [question]
     for character in speech:
@@ -463,7 +468,7 @@ def player_question():
         casemap[myPlayer.currentcase] [secretcondition] = True
         player_nextcase()
 
-def player_approve():
+def player_approve(action):
     myPlayer.time = myPlayer.time - 1
     speech = casemap[myPlayer.currentcase] [approve]
     for character in speech:
@@ -481,7 +486,7 @@ def player_approve():
         casemap[myPlayer.currentcase] [badcondition] = True
         player_nextcase()
 
-def player_deny():
+def player_deny(action):
     myPlayer.time = myPlayer.time - 2
     speech = casemap[myPlayer.currentcase] [deny]
     for character in speech:
