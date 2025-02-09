@@ -143,18 +143,23 @@ def help_menu():
 case = ""
 introduction = "introduction text" #personal data and passport
 luggage = "luggage" # to examine the belongings of an individual
+luggage_condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
 search = "search" # to stripsearch an
+search_condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
 question = "question" # to inquire about the reasons for enter 
+question_condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
 approve = "approve" # approves the request and let the individual pass the border
+approve_condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
 deny = "deny" # deny the entry request and prevents the individual from entering 
+deny_condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
 solved = False # sets a boolean for if a case has already been closed
 condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-good_condition = "" # needs to be equal to DENY or APPROVE
 good_outcome = "good outcome" # text for good outcome
-bad_condition = "" # needs to be equal to DENY or APPROVE
+good_condition = False # For storing outcome
 bad_outcome = "bad outcome" # text for bad outcome
-secret_condition = "" # needs to be equal to LUGGAGE or QUESTION or SEARCH
+bad_condition = False # For storing outcome
 secret_outcome = "secret outcome" # text for secret outcome
+secret_condition = False # For storing outcome
 next_case = "next" # next case in line
 
 
@@ -169,86 +174,115 @@ casemap = {
         case: "c01 name",
         introduction: "c01 intro",
         luggage: "c01 luggage",
+        luggage_condition: 0,
         search: "c01 search",
+        search_condition: 3,
         question: "c01 question", 
+        question_condition: 0,
         approve: "c01 approve",
-        deny: "c01 deny", 
+        approve_condition: 2,
+        deny: "c01 deny",
+        deny_condition: 1, 
         solved: False,
         condition: 0,
-        good_condition: deny, 
         good_outcome: "c01 good outcome",
-        bad_condition: approve,
+        good_condition: False,
         bad_outcome: "c01 bad outcome",
-        secret_condition: search,
+        bad_condition: False,
         secret_outcome: "c01 secret outcome",
+        secret_condition: False,
         next_case: "c02",
     },
     "c02": {
         case: "c02 name",
         introduction: "c02 intro",
         luggage: "c02 luggage",
+        luggage_condition: 0,
         search: "c02 search",
-        question: "c02 question", 
+        search_condition: 0,
+        question: "c02 question",
+        question_condition: 0, 
         approve: "c02 approve",
+        approve_condition: 0,
         deny: "c02 deny", 
+        deny_condition: 0,
         solved: False,
         condition: 0,
         good_outcome: "c02 good outcome",
-        bad_condition: approve,
+        good_condition: False,
         bad_outcome: "c02 bad outcome",
-        secret_condition: None,
+        bad_condition: False,
         secret_outcome: "c02 secret outcome",
+        secret_condition: False,
         next_case: "c03",
     },
     "c03": {
         case: "c03 name",
         introduction: "c03 intro",
         luggage: "c03 luggage",
+        luggage_condition: 0,
         search: "c03 search",
-        question: "c03 question", 
+        search_condition: 0,
+        question: "c03 question",
+        question_condition: 0, 
         approve: "c03 approve",
+        approve_condition: 0,
         deny: "c03 deny", 
+        deny_condition: 0,
         solved: False,
         condition: 0,
         good_outcome: "c03 good outcome",
-        bad_condition: approve,
+        good_condition: False,
         bad_outcome: "c03 bad outcome",
-        secret_condition: None,
+        bad_condition: False,
         secret_outcome: "c03 secret outcome",
+        secret_condition: False,
         next_case: "c04",
     },
         "c04": {
         case: "c04 name",
         introduction: "c04 intro",
         luggage: "c04 luggage",
+        luggage_condition: 0,
         search: "c04 search",
-        question: "c04 question", 
+        search_condition: 0,
+        question: "c04 question",
+        question_condition: 0, 
         approve: "c04 approve",
+        approve_condition: 0,
         deny: "c04 deny", 
+        deny_condition: 0,
         solved: False,
         condition: 0,
         good_outcome: "c04 good outcome",
-        bad_condition: approve,
+        good_condition: False,
         bad_outcome: "c04 bad outcome",
-        secret_condition: None,
-        secret_outcome: "c04 secret outcome",      
+        bad_condition: False,
+        secret_outcome: "c04 secret outcome",
+        secret_condition: False,      
         next_case: "c05",
     },
         "c05": {
         case: "c05 name",
         introduction: "c05 intro",
         luggage: "c05 luggage",
+        luggage_condition: 0,
         search: "c05 search",
-        question: "c05 question", 
+        search_condition: 0,
+        question: "c05 question",
+        question_condition: 0, 
         approve: "c05 approve",
+        approve_condition: 0,
         deny: "c05 deny", 
+        deny_condition: 0,
         solved: False,
         condition: 0,
         good_outcome: "c05 good outcome",
-        bad_condition: approve,
+        good_condition: False,
         bad_outcome: "c05 bad outcome",
-        secret_condition: None,
+        bad_condition: False,
         secret_outcome: "c05 secret outcome",
+        secret_condition: False,
         next_case: "",
     },
 }
@@ -263,6 +297,9 @@ def print_currentcase():
 def prompt():  
     print("\n" + "===================")
     print("What would you like to do?")
+    print(casemap[myPlayer.currentcase] [secret_condition]) # FOR TESTING
+    print(casemap[myPlayer.currentcase] [solved]) # FOR TESTING
+    print(myPlayer.people)
     action = input("> ")
     acceptable_actions = ["luggage", "search", "question", "approve", "deny", "quit"]
     while action.lower() not in acceptable_actions:
@@ -276,8 +313,10 @@ def prompt():
           [myPlayer.currentcase] [luggage])
     elif action.lower() == "search":
         myPlayer.time = myPlayer.time - 10
-        print("# " + casemap
-          [myPlayer.currentcase] [search])
+        print("# " + casemap[myPlayer.currentcase] [search])
+        while action.lower() == "search":
+            if casemap[myPlayer.currentcase] [search_condition] == 3: # BUGGY
+                print("This is true") # BUGGY
     elif action.lower() == "question":
         myPlayer.time = myPlayer.time - 5
         print("# " + casemap
@@ -295,7 +334,7 @@ def prompt():
 #### GAME FUNCTIONALITY ####
 def main_game_loop():
     while myPlayer.game_over is False:
-        print("You have " + str(myPlayer.time) + " minutes remaining until the end of your shift!\n")        
+        print("You have " + str(myPlayer.time) + " minutes remaining until the end of your shift!\n")  
         print_currentcase()
         prompt()
         if myPlayer.time < 0: # FAILING CONDITION "run out of time"
@@ -342,10 +381,13 @@ def setup_game():
     #### PLAYER STATS ####
     if myPlayer.lod == "hard": # USE FOR TIME REMAINING
         myPlayer.time = 30
+        myPlayer.people = 5 # Equal to the number of cases
     elif myPlayer.lod == "medium":
         myPlayer.time = 45
+        myPlayer.people = 5
     elif myPlayer.lod == "easy":
         myPlayer.time = 60
+        myPlayer.people = 5
     
     print("You have " + str(myPlayer.time) + " minutes remaining until the end of your shift!\n")
 
