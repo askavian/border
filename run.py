@@ -140,27 +140,27 @@ def help_menu():
 
 #### CASES OPTIONS ####
 
-case = ""
-introduction = "introduction text" #personal data and passport
-luggage = "luggage" # to examine the belongings of an individual
-luggagecondition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-search = "search" # to stripsearch an
-searchcondition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-question = "question" # to inquire about the reasons for enter 
-questioncondition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-approve = "approve" # approves the request and let the individual pass the border
-approvecondition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-deny = "deny" # deny the entry request and prevents the individual from entering 
-denycondition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-solved = False # sets a boolean for if a case has already been closed
-condition = 0 # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-goodoutcome = "good outcome" # text for good outcome
-goodcondition = False # For storing outcome
-badoutcome = "bad outcome" # text for bad outcome
-badcondition = False # For storing outcome
-secretoutcome = "secretoutcome" # text for secret outcome
-secretcondition = False # For storing outcome
-nextcase = "next" # next case in line
+case = "CASE"
+introduction = "INTRO" #personal data and passport
+luggage = "LUGGAGE" # to examine the belongings of an individual
+luggagecondition = "LUGGCOND" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+search = "SEARCH" # to stripsearch an
+searchcondition = "SEARCOND" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+question = "QUESTION" # to inquire about the reasons for enter 
+questioncondition = "QUESCOND" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+approve = "APPROVE" # approves the request and let the individual pass the border
+approvecondition = "APPRCOND" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+deny = "DENY" # deny the entry request and prevents the individual from entering 
+denycondition = "DENYCOND" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+solved = "SOLVED" # sets a boolean for if a case has already been closed
+condition = "CONDITION" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+goodoutcome = "GOODOUT" # text for good outcome
+goodcondition = "GOODCOND" # For storing outcome
+badoutcome = "BADOUT" # text for bad outcome
+badcondition = "BADCOND" # For storing outcome boolean
+secretoutcome = "SECOUT" # text for secret outcome
+secretcondition = "SECCOND" # For storing outcome
+nextcase = "NEXT" # next case in line
 
 
 #### CASE DICTONARY AS KEY VALUE####
@@ -286,10 +286,9 @@ casemap = {
         nextcase: "",
     },
 }
-
 #### GAME INTERACTIVITY ####
 def print_currentcase():
-    print(casemap[myPlayer.currentcase])
+    print(casemap)
     print("\n" + ("#" * (4 + len(myPlayer.currentcase)))) # "\n" prints everything on a new line / make # x 4 len(myPlayer.currentcase) gets the LENGTH OF THE STRING of location
     print("REQUEST FOR ENTRY: ")
     print("# " + casemap
