@@ -44,12 +44,9 @@
 #
 #  by Malte M. Boettcher 
 
-import cmd # imports command functions -> NOT USED ATM
-import textwrap # displays text in wraps -> NOT USED ATM
 import sys # imports system functions -> used here for "exit" command to close game
 import os # imports operating systems functions -> used here for "clear" command NOT "cls" for Heroku
 import time # imports time related functions -> used here for text output delay time
-import random # randomizer -> used here for randomize encounters
 
 screen_width = 100 # sets output window to full screen 100% width CHECK IF ISSUES WITH TEMPLATE RESTRICTIONS 80/24
 
@@ -395,20 +392,94 @@ def player_nextcase():
     os.system("clear")
     myPlayer.people = myPlayer.people - 1
     if myPlayer.people == 0:
+        endspeech = "Your shift ended Rookie.\n" 
+        endspeech = "You can go home now. Get some rest.\n"
+        for character in endspeech:
+            sys.stdout.write(character)
+            sys.stdout.flush()
+            time.sleep(0.05)
         final()
     else:
         myPlayer.currentcase = casemap[myPlayer.currentcase] [nextcase]
 
 
+#### FINAL ASSESSMENT ####
 def final():
-    print("Shift ended, good job!")
-    myPlayer.game_over = True
+   time.sleep(2.5)
+   newsspeech = "Welcome to today's Evening News!\n" # not print because everything will come naturally
+   for character in newsspeech:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
+   print(""
+                  
+         "") 
+   if casemap["c01"] [condition] == 3:
+       myPlayer.score = myPlayer.score + 20
+       print(casemap["c01"] [secretoutcome] + "\n")
+   elif casemap["c01"] [condition] == 1:
+       myPlayer.score = myPlayer.score + 10
+       print(casemap["c01"] [goodoutcome] + "\n")
+   elif casemap["c01"] [condition] == 2:
+       myPlayer.score = myPlayer.score + 1        
+       print(casemap["c01"] [badoutcome] + "\n")
+   if casemap["c02"] [condition] == 3:
+       myPlayer.score = myPlayer.score + 20
+       print(casemap["c02"] [secretoutcome] + "\n")
+   elif casemap["c02"] [condition] == 1:
+       myPlayer.score = myPlayer.score + 10
+       print(casemap["c02"] [goodoutcome] + "\n")
+   elif casemap["c02"] [condition] == 2:
+       myPlayer.score = myPlayer.score + 1   
+       print(casemap["c02"] [badoutcome] + "\n")
+   if casemap["c03"] [condition] == 3:
+       myPlayer.score = myPlayer.score + 20
+       print(casemap["c03"] [secretoutcome] + "\n")
+   elif casemap["c03"] [condition] == 1:
+       myPlayer.score = myPlayer.score + 10
+       print(casemap["c03"] [goodoutcome] + "\n")
+   elif casemap["c03"] [condition] == 2:
+       myPlayer.score = myPlayer.score + 1   
+       print(casemap["c03"] [badoutcome] + "\n")
+   if casemap["c04"] [condition] == 3:
+       myPlayer.score = myPlayer.score + 20
+       print(casemap["c04"] [secretoutcome] + "\n")
+   elif casemap["c04"] [condition] == 1:
+       myPlayer.score = myPlayer.score + 10
+       print(casemap["c04"] [goodoutcome] + "\n")
+   elif casemap["c04"] [condition] == 2:
+       myPlayer.score = myPlayer.score + 1   
+       print(casemap["c04"] [badoutcome] + "\n")
+   if casemap["c05"] [condition] == 3:
+       myPlayer.score = myPlayer.score + 20
+       print(casemap["c05"] [secretoutcome] + "\n")
+   elif casemap["c05"] [condition] == 1:
+       myPlayer.score = myPlayer.score + 10
+       print(casemap["c05"] [goodoutcome] + "\n")
+   elif casemap["c05"] [condition] == 2:
+       myPlayer.score = myPlayer.score + 1   
+       print(casemap["c05"] [badoutcome] + "\n")
+   print(""
+              
+         "")
+   newsspeech = "What a wild day that was, right? Goodnight and sty safe.\n"
+   print("You scored " + str(myPlayer.score) + " out of 100.")
+   for character in newsspeech:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)  
+ 
+   myPlayer.game_over = True
 
 
 #### GAME FUNCTIONALITY ####
 def main_game_loop():
     while myPlayer.game_over is False:
-        print("You have " + str(myPlayer.time) + " minutes remaining until the end of your shift!\n")  
+        print("""
+              
+              You have """ + str(myPlayer.time) + """ minutes remaining until the end of your shift!\n
+              
+              """)  
         print_currentcase()
         prompt()
         if myPlayer.time < 0: # FAILING CONDITION "run out of time"
