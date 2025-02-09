@@ -44,11 +44,13 @@
 #
 #  by Malte M. Boettcher 
 
+
 import sys # imports system functions -> used here for "exit" command to close game
 import os # imports operating systems functions -> used here for "clear" command NOT "cls" for Heroku
 import time # imports time related functions -> used here for text output delay time
 
-screen_width = 100 # sets output window to full screen 100% width CHECK IF ISSUES WITH TEMPLATE RESTRICTIONS 80/24
+screen_width = 100 # sets output window to full screen 100% width
+
 
 #### PLAYER INITITAL SETUP ####
 class player:
@@ -161,38 +163,93 @@ nextcase = "NEXT" # next case in line
 
 
 #### CASE DICTONARY AS KEY VALUE####
-solved_cases = {"c01": False, "c02": False, "c03": False, "c04": False, "c05": False}
+# solved_cases = {"c01": False, "c02": False, "c03": False, "c04": False, "c05": False}
 # dictionary can be expanded or used for shuffel
 
 #### CASEMAP ####
 
 casemap = {
     "c01": {
-        case: "c01 name",
-        introduction: "c01 intro",
-        luggage: "c01 luggage",
+        case: "Lanto Blorg",
+        introduction: """
+        Name: Lanto Blorg
+        Date of Birth: Dec.11th 1999
+        Sex: Male
+
+        The passport was recently issued and shows no obvious signs of damage or manipulation.
+        You recognize the person in front of you as the same person shown on the passport photo. 
+        The eyes are the same; the shape of the ears is the same and you recognize a birthmark beneath the left eye.
+
+        However, in his passport, the person has a full beard and hair. The man in front of you is bald and fully shaven.      
+        """,
+        luggage: """
+        You go through Lanto's luggage and find:
+        # A few personal belongings. Among them a picture of his family and a religious object. 
+        # Clothing items that are in remarkable condition (brand new). But the amount of clothing seems off. There is only one pair of underwear, but five shirts and two pair of suit pants. 
+        # No fluids, alcohol or any other contraband. 
+
+        There is no contraband in Lanto's suitcase or any other illegal items.
+        """,
         luggagecondition: 0,
-        search: "c01 search",
+        search: """
+        You perform a full check on Lanto and his belonging. 
+                  
+        You find 2kg of C4 inside a suicide vest underneath his shirt and a detailed list of a planned attack in the city.
+                  
+        Lanto is arrested!
+        """,
         searchcondition: 3,
-        question: "c01 question", 
+        question: """
+        At first, Lanto is hestitant to answer your questions, but after a while he opens up. 
+        Lanto plans on staying at least two weeks in the city. 
+        
+        His plans are to search for his family that got seperated during the war. 
+        Unfortunately, he has no place to stay yet and no Hotel Reservation. This is odd, because usually, people are booking 
+        their accomodation way in advance within a secure Hotel with Security when visiting.
+        """, 
         questioncondition: 0,
-        approve: "c01 approve",
+        approve: """
+        Lanto Blorg passes through the border crossing uninterrupted.
+        """,
         approvecondition: 2,
-        deny: "c01 deny",
+        deny: """
+        Lanto Blorg is shouting about racial profiling and why you refuse him. 
+        But ultimately he leaves the border crossing and returns home.
+        """,
         denycondition: 1, 
         solved: False,
         condition: 0,
-        goodoutcome: "c01 good outcome",
+        goodoutcome: """
+        A would-be suicide attacker was rejected today at the border crossing. The man was later identified as Lanto Blorg.
+        He tried to cross the border but was rejected. On his way back home his sucide vest went off killing only him.
+        """,
         goodcondition: False,
-        badoutcome: "c01 bad outcome",
+        badoutcome: """
+        A Terrorist Attack happend on a public bus this afternoon, killing 15 and injuring 7, including children. 
+        The individual was later identified as Lanto Blorg and was able to pass the border uniterrupted while carrying a suicide vest. 
+        """,
         badcondition: False,
-        secretoutcome: "c01 secret outcome",
+        secretoutcome: """
+        A Terrorist Attack was prevented today thanks to a new border guard officer on his first day of duty!
+        While searching the would-be terrorist, identified as Lanto Blorg, the guard noticed a suicide vest. 
+        The guard took immediate action and in such prevented a disaster.
+        """,
         secretcondition: False,
         nextcase: "c02",
     },
     "c02": {
-        case: "c02 name",
-        introduction: "c02 intro",
+        case: "Dammyra de Brillaal",
+        introduction: """
+        Name: Dammyra de Brillaal
+        Date of Birth: June.5th 2004
+        Sex: Female
+
+        The passport is unremarkable and the details check out. Dammyra is the individual in the pictures. 
+
+        Her behavior seems to erratic and while talking to you, she constantly looks over her shoulder. 
+
+        Maybe she is fleeing something.... or someone.      
+        """,
         luggage: "c02 luggage",
         luggagecondition: 0,
         search: "c02 search",
@@ -285,18 +342,22 @@ casemap = {
 }
 #### GAME INTERACTIVITY ####
 def print_currentcase():
-    print("\n" + ("#" * (4 + len(myPlayer.currentcase)))) # "\n" prints everything on a new line / make # x 4 len(myPlayer.currentcase) gets the LENGTH OF THE STRING of location
+    print("\n" + ("#" * (4 + len(myPlayer.currentcase))))
     print("REQUEST FOR ENTRY: ")
-    print("# " + casemap
-          [myPlayer.currentcase] [introduction])
+    speech = casemap[myPlayer.currentcase] [introduction]
+    for character in speech:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.001)
 
 def prompt():  
     print("\n" + "===================")
-    print("What would you like to do?")
+    print("'search' the luggage, 'question' the individual, 'search' the individual, 'deny' or 'approve' the entry")
+    print("What would you like to do?\n")
     action = input("> ")
     acceptable_actions = ["luggage", "search", "question", "approve", "deny", "quit"]
     while action.lower() not in acceptable_actions:
-        print("Unkonw action, try again.\n")
+        print("That is not a valid Action\n")
         action = input("> ")
     if action.lower() == "quit":
         print("Goodbye! Reload the Game to try again.")
@@ -312,7 +373,7 @@ def prompt():
     elif action.lower() == "approve":
         player_approve(action.lower())
 
-def player_luggage(action):
+def player_luggage():
     myPlayer.time = myPlayer.time - 8
     speech = casemap[myPlayer.currentcase] [luggage]
     for character in speech:
@@ -325,7 +386,7 @@ def player_luggage(action):
         casemap[myPlayer.currentcase] [secretcondition] = True
         player_nextcase()
 
-def player_search(action):
+def player_search():
     myPlayer.time = myPlayer.time - 12
     speech = casemap[myPlayer.currentcase] [search]
     for character in speech:
@@ -338,7 +399,7 @@ def player_search(action):
         casemap[myPlayer.currentcase] [secretcondition] = True
         player_nextcase()
 
-def player_question(action):
+def player_question():
     myPlayer.time = myPlayer.time - 5
     speech = casemap[myPlayer.currentcase] [question]
     for character in speech:
@@ -351,7 +412,7 @@ def player_question(action):
         casemap[myPlayer.currentcase] [secretcondition] = True
         player_nextcase()
 
-def player_approve(action):
+def player_approve():
     myPlayer.time = myPlayer.time - 1
     speech = casemap[myPlayer.currentcase] [approve]
     for character in speech:
@@ -369,7 +430,7 @@ def player_approve(action):
         casemap[myPlayer.currentcase] [badcondition] = True
         player_nextcase()
 
-def player_deny(action):
+def player_deny():
     myPlayer.time = myPlayer.time - 2
     speech = casemap[myPlayer.currentcase] [deny]
     for character in speech:
@@ -470,7 +531,9 @@ def final():
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)  
+
  
+   time.sleep(60) # prevents the game from closing for 60 seconds, to read the outcome
    myPlayer.game_over = True
 
 
@@ -575,9 +638,7 @@ def setup_game():
 
     Great!
 
-    Let's get you started. There are already people lining up. 
-
-    Your shift will end in """ + str(myPlayer.time) + """ minutes.\n
+    Let's get you started. There are already people lining up.\n
     """
     for character in setup_03:
         sys.stdout.write(character) 
@@ -586,87 +647,3 @@ def setup_game():
     main_game_loop()
 
 title_screen() # launches the game and setup
-
-
-
-
-#### TESTING SCREENS
-
-print("#1##############################################################################")
-print("#2                                                                             #")
-print("#3                                                                             #") 
-print("#4                                                                             #")
-print("#5                       OUTPUT WINDOW FOR REFERENCE                           #")
-print("#6                  Fullscreen Test with individual rows                       #")
-print("#7                                                                             #")  
-print("#8                                                                             #")
-print("#9   80 colums max-width for output window reference as set by CI template     #") 
-print("#10                                                                            #")
-print("#11                                                                            #")
-print("#12  24 rows max-height for output window as set by CI template                #")
-print("#13                                                                            #")
-print("#14                                                                            #")   
-print("#15                                                                            #") 
-print("#16                                                                            #")
-print("#17                                                                            #")
-print("#18                                                                            #")
-print("#19                                                                            #")
-print("#20                                                                            #")
-print("#21                                                                            #")
-print("#22                                                                            #")
-print("#23                                                                            #")  
-print("#24#############################################################################")
-
-
-
-# DO NOT USE looks wierd 
-print("""
-#1##############################################################################
-#2                                                                             #
-#3                                                                             # 
-#4                                                                             #
-#5                       OUTPUT WINDOW FOR REFERENCE                           # 
-#6                 Fullscreen Test with one print command                      #
-#7                                                                             #  
-#8                                                                             #
-#9   80 colums max-width for output window reference as set by CI template     # 
-#10                                                                            #
-#11                                                                            #
-#12  24 rows max-height for output window as set by CI template                #
-#13                                                                            #
-#14                                                                            #   
-#15                                                                            # 
-#16                                                                            #
-#17                                                                            #
-#18                                                                            #
-#19                                                                            #
-#20                                                                            #
-#21                                                                            #
-#22                                                                            #
-#23                                                                            #  
-#24#############################################################################
-      """)
-
-
-print("                                                                                ")
-print("    Welcome to:                                                                 ")
-print("                                                                                ")
-print("    ██████   ██████  ██████  ██████  ███████ ██████                             ")
-print("    ██   ██ ██    ██ ██   ██ ██   ██ ██      ██   ██                            ")
-print("    ██████  ██    ██ ██████  ██   ██ █████   ██████                             ")  
-print("    ██   ██ ██    ██ ██   ██ ██   ██ ██      ██   ██                            ")
-print("    ██████   ██████  ██   ██ ██████  ███████ ██   ██                            ") 
-print("                                                                                ")
-print("     ██████ ██████   ██████  ███████ ███████ ██ ███    ██  ██████               ")
-print("    ██      ██   ██ ██    ██ ██      ██      ██ ████   ██ ██                    ")
-print("    ██      ██████  ██    ██ ███████ ███████ ██ ██ ██  ██ ██   ███              ")
-print("    ██      ██   ██ ██    ██      ██      ██ ██ ██  ██ ██ ██    ██              ")   
-print("     ██████ ██   ██  ██████  ███████ ███████ ██ ██   ████  ██████               ") 
-print("                                                                                ")
-print("    A game about tough moral choices and consequences.                          ")
-print("                                                                                ")
-print("    type in:                                                                    ")
-print("      - Play - Starts a new game                                                ")
-print("      - Help - Opens the help menu                                              ")
-print("      - Quit - Exits the game                                                   ")
-print("                                                                                ")
