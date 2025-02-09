@@ -158,7 +158,7 @@ goodoutcome = "good outcome" # text for good outcome
 goodcondition = False # For storing outcome
 badoutcome = "bad outcome" # text for bad outcome
 badcondition = False # For storing outcome
-secretoutcome = "secret outcome" # text for secret outcome
+secretoutcome = "secretoutcome" # text for secret outcome
 secretcondition = False # For storing outcome
 nextcase = "next" # next case in line
 
