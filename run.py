@@ -244,29 +244,80 @@ casemap = {
         Date of Birth: June.5th 2004
         Sex: Female
 
-        The passport is unremarkable and the details check out. Dammyra is the individual in the pictures. 
+        The passport is unremarkable and the details check out. Dammyra is the individual in the pictures.
+        She wears full make-up (maybe a bit too much) and from the optics, she can be considered beautiful.  
 
-        Her behavior seems to erratic and while talking to you, she constantly looks over her shoulder. 
+        Her behavior seems to erratic, however, and while talking to you, she constantly looks over her shoulder. 
 
         Maybe she is fleeing something.... or someone.      
         """,
-        luggage: "c02 luggage",
+        luggage: """
+        Dammyra's luggage is hastely thrown together. Crucial items are missing. 
+
+        There is not toothbrush and very few personal items besides clothing. 
+        
+        You find a worn-out Teddybear and a picture of Dammyra in a much younger age with an older woman. Both woman look happy. 
+        
+        You find a small amount of Marihuana in a alittle plastic bag at the bottom of the suitcase. 
+        
+        The amount is small, but it is still illegal. 
+        """,
         luggagecondition: 0,
-        search: "c02 search",
+        search: """
+        You search Dammyra. She is visibly uncomfortable.  
+
+        There is no forbidden item on her body, but her body shows signs of violence. 
+
+        The heavy make-up she is wearing covers up a bruise beneath her left eye and on her chest, there are multiple bruises. 
+
+        The injuries are not fresh. Maybe 4 days to a 2 weeks old and in different stages of healing. 
+
+        You also find a name tatooed on her left thigh and her arms show heavy signs of substance abuse.
+
+        This might be a mark of a pimp. 
+        """,
         searchcondition: 0,
-        question: "c02 question",
-        questioncondition: 0, 
-        approve: "c02 approve",
+        question: """
+        Dammyra claims to be visiting her sister.  
+
+        While questioning Dammyra becomes nervous and gives answers that don't add up.  
+
+        The adress she provides does not exist and she changes the name of her sister during the interview. 
+
+        After being called on it, she breaks and begings to cry and sob uncotrolably. 
+
+        She now claims to be going back home after being obducted 5 years ago by a group of human-traffickers.
+
+        She was able to flee this morning.
+
+        She might be lying but in the end her story checks out and you hand her over to the authorities.   
+        """,
+        questioncondition: 3, 
+        approve: """
+        When you stamp her passport, you can see the relief on Dammyra's face. She passes the border uniterrupted. 
+        """,
         approvecondition: 1,
-        deny: "c02 deny", 
+        deny: """
+        Dammyra is visibly upset and frightend. She hestitates to walk back, but in the en, she gives up and leaves. 
+        """, 
         denycondition: 2,
         solved: False,
         condition: 0,
-        goodoutcome: "c02 good outcome",
+        goodoutcome: """
+        A group of criminals roaming a neighborhood tonight was arrested by the police.
+        When questioned the police found evidence that the group was looking for young woman that was reported missing 5 years ago.
+        The woman did not show up at home one night and was presumed dead. 
+        """,
         goodcondition: False,
-        badoutcome: "c02 bad outcome",
+        badoutcome: """
+        A woman later idetified as Dammyra de Brillaal was refused entry at the border today and was later found dead.
+        Dammyra went missing from her parents house five years ago and was presumed dead. 
+        Her body was found in a dumpster and showed obvious signs of violence. Our neighbours police force is leading the investigation. 
+        """, 
         badcondition: False,
-        secretoutcome: "c02 secret outcome",
+        secretoutcome: """
+        A woman
+        """,
         secretcondition: False,
         nextcase: "c03",
     },
