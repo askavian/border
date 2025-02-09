@@ -102,36 +102,36 @@ def title_screen():
     print("                                                                                ")
     print("    A game about tough moral choices and consequences.                          ")
     print("                                                                                ")
+    print("                                                                                ")
     print("    type in:                                                                    ")
     print("      - Play - Starts a new game                                                ")
     print("      - Help - Opens the help menu                                              ")
     print("      - Quit - Exits the game                                                   ")
-    print("                                                                                ")
     title_screen_selections()
 
 def help_menu():
     print("                                                                                ")
     print("    HELP MENU:                                                                  ")
     print("                                                                                ")
-    print("                                                                                ")
-    print("                                                                                ")
-    print("                                                                                ")  
-    print("                                                                                ")
+    print("    It is your first day as a new Officer of the Border Force and it is your    ")
+    print("    job to decide if someone can enter the country or not.                      ")
+    print("    You can perform the following actions by typing in the respective command:  ")
     print("                                                                                ") 
+    print("    COMMAND   ACTION                                             TIME REQUIRED  ")
+    print("    =======   ======                                             =============  ")
+    print("   'luggage'  Search the belongings of an individual.            cost 8 minutes ")
+    print("   'search'   Perform a strip search of an individual.           cost 12 minutes")
+    print("   'question' Question the individual on the reason for entry.   cost 5 minutes ")   
+    print("   'approve'  Entry is granted and the individual can enter.     cost 1 minute  ") 
+    print("   'deny'     Entry is rejected and the individual is send back. cost 2 minutes ")
     print("                                                                                ")
-    print("                                                                                ")
-    print("                                                                                ")
-    print("                                                                                ")
-    print("                                                                                ")   
-    print("                                                                                ") 
-    print("                                                                                ")
-    print("                                                                                ")
+    print("    Depending on the Level of Difficulty chosen, you only a set amount of time  ")
+    print("    until your shift end: 30 min (HARD), 45 min (MEDIUM) or 60 min (EASY)       ")
     print("                                                                                ")
     print("    type in:                                                                    ")
     print("      - Play - Starts a new game                                                ")
     print("      - Help - Opens the help menu                                              ")
     print("      - Quit - Exits the game                                                   ")
-    print("                                                                                ")
     title_screen_selections()
 
 
@@ -494,7 +494,31 @@ def setup_game():
     os.system("clear")
 
     ### NAME ###
-    setup_01 = "What is your name rookie?\n" # not print because everything will come naturally
+    setup_01 = """
+
+    Welcome to the border rookie!              
+ 
+    We have fought a long and bloody war againt our neighbors and a lot of 
+    good people died!
+
+    But thanks to the might of our army and our glorious overlords we have 
+    won!
+
+    The situation on the border now is stable, but don't be fooled! Even the 
+    tiniest spark can reignite hostilities.
+    There are religious zealots, far-right nationalists and criminals trying
+    to seize the opportunity. Contraband Items, Weapons, Human-Traffiking, we 
+    got it all!
+    There are also a lot of great folks out here. Folks that we need to let 
+    it. Aid-Workers, Refugees, displaced people and folks that are looking for
+    a way home. 
+
+    If we want to have a bright future with our neighbors, we have to make 
+    this work!. 
+
+    I am counting on you!
+
+    Befor I forget: What is your name rookie?\n""" # not print because everything will come naturally
     for character in setup_01:
         sys.stdout.write(character) 
         sys.stdout.flush() 
