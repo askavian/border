@@ -495,7 +495,6 @@ def setup_game():
 
     ### NAME ###
     setup_01 = """
-
     Welcome to the border rookie!              
  
     We have fought a long and bloody war againt our neighbors and a lot of 
@@ -518,7 +517,8 @@ def setup_game():
 
     I am counting on you!
 
-    Befor I forget: What is your name rookie?\n""" # not print because everything will come naturally
+    Befor I forget: What is your name rookie?\n
+    """
     for character in setup_01:
         sys.stdout.write(character) 
         sys.stdout.flush() 
