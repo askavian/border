@@ -117,13 +117,13 @@ def help_menu():
     print("    job to decide if someone can enter the country or not.                      ")
     print("    You can perform the following actions by typing in the respective command:  ")
     print("                                                                                ") 
-    print("    COMMAND   ACTION                                             TIME REQUIRED  ")
-    print("    =======   ======                                             =============  ")
-    print("   'luggage'  Search the belongings of an individual.            cost 8 minutes ")
-    print("   'search'   Perform a strip search of an individual.           cost 12 minutes")
-    print("   'question' Question the individual on the reason for entry.   cost 5 minutes ")   
-    print("   'approve'  Entry is granted and the individual can enter.     cost 1 minute  ") 
-    print("   'deny'     Entry is rejected and the individual is send back. cost 2 minutes ")
+    print("    COMMAND     ACTION                                               TIME NEEDED")
+    print("    =======     ======                                               ===========")
+    print("  - Luggage -   Search the belongings of an individual.               8 minutes ")
+    print("  - Search -    Perform a strip search of an individual.             12 minutes ")
+    print("  - Question -  Question the individual on the reason for entry.      5 minutes ")   
+    print("  - Approve -   Entry is granted and the individual can enter.        1 minute  ") 
+    print("  - Deny -      Entry is rejected and the individual is send back.    2 minutes ")
     print("                                                                                ")
     print("    Depending on the Level of Difficulty chosen, you only a set amount of time  ")
     print("    until your shift end: 30 min (HARD), 45 min (MEDIUM) or 60 min (EASY)       ")
@@ -462,7 +462,9 @@ def final():
    print(""
               
          "")
-   newsspeech = "What a wild day that was, right? Goodnight and sty safe.\n"
+   newsspeech = """
+   What a wild day that was, right? Goodnight and stay safe.\n
+   """
    print("You scored " + str(myPlayer.score) + " out of 100.")
    for character in newsspeech:
         sys.stdout.write(character) 
@@ -484,7 +486,10 @@ def main_game_loop():
         prompt()
         if myPlayer.time < 0: # FAILING CONDITION "run out of time"
             myPlayer.game_over
-            print("You ran out of time! You lost the game!")
+            print("""
+                  You shift ended and there are still people waiting.
+                  
+                  You Lost!""")
             sys.exit()
 
 
@@ -517,22 +522,27 @@ def setup_game():
 
     I am counting on you!
 
-    Befor I forget: What is your name rookie?\n
+    Before I forget: What is your name rookie?\n
     """
     for character in setup_01:
         sys.stdout.write(character) 
         sys.stdout.flush() 
-        time.sleep(0.05) # gives delay to input of 5 miliseconds
+        time.sleep(0.03) # gives delay to input of 5 miliseconds
     player_name = input("> ") # could directly write to myPlayer.name, but keep it seperated to eventually add functionality later
     myPlayer.name = player_name
 
     ### DIFFICULTY LEVEL LOD ###
-    setup_02 = "Select your difficulty level!\n" # not print because everything will come naturally
-    setup_02_added = "(You can play on 'hard', 'medium' or 'easy')\n"
+    setup_02 = """
+
+    Select your difficulty level!\n
+    """
+    setup_02_added = """
+    (You can play on 'hard', 'medium' or 'easy')\n
+    """
     for character in setup_02:
         sys.stdout.write(character) 
         sys.stdout.flush() 
-        time.sleep(0.05) # gives delay to input of 5 miliseconds
+        time.sleep(0.03) # gives delay to input of 5 miliseconds
     for character in setup_02_added:
         sys.stdout.write(character) 
         sys.stdout.flush() 
@@ -558,14 +568,21 @@ def setup_game():
         myPlayer.time = 60
         myPlayer.people = 5
     
-    print("You have " + str(myPlayer.time) + " minutes remaining until the end of your shift!\n")
-
 
     #### STARTS GAME AFTER SETUP ####
     os.system("clear") 
-    print("########################")
-    print("#   Let's Start now!   #")
-    print("########################")
+    setup_03 = """
+
+    Great!
+
+    Let's get you started. There are already people lining up. 
+
+    Your shift will end in """ + str(myPlayer.time) + """ minutes.\n
+    """
+    for character in setup_03:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.03) # gives delay to input of 5 miliseconds
     main_game_loop()
 
 title_screen() # launches the game and setup
