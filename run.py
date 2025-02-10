@@ -175,9 +175,9 @@ casemap = {
 
     The passport was recently issued and shows no obvious signs of damage or 
     manipulation.
-    You recognize the person in front of you as the same person shown on the
-    passport photo. 
-    The eyes are the same; the shape of the ears is the same and you 
+    You recognize the person in front of you as the same person shown in the 
+    photo. 
+    The eyes are the same, the shape of the ears is the same and you 
     recognize a birthmark beneath the left eye.
 
     However, in his passport, the person has a full beard and hair. The man 
@@ -190,14 +190,14 @@ casemap = {
       religious object. 
     # Clothing items that are in remarkable condition (brand new). But the
       amount of clothing seems off. There is only one pair of underwear, 
-      but five shirts and two pair of suit pants. 
-    # No fluids, alcohol or any other contraband. 
+      but five shirts and two pairs of suit pants. 
+    # No fluids, alcohol, or any other contraband. 
 
-    There is no contraband in Lanto's suitcase or any other illegal items.
+    There is no contraband or any other illegal items in Lanto's suitcase.
     """,
     luggagecondition: 0,
     search: """
-    You perform a full check on Lanto and his belonging. 
+    You perform a full check on Lanto and his belongings. 
                   
     You find 2kg of C4 inside a suicide vest underneath his shirt and a 
     detailed list of a planned attack in the city.
@@ -206,14 +206,15 @@ casemap = {
     """,
     searchcondition: 3,
     question: """
-    At first, Lanto is hestitant to answer your questions, but after a while
-    he opens up. 
-    Lanto plans on staying at least two weeks in the city. 
-   
-    His plans are to search for his family that got seperated during the 
-    war. Unfortunately, he has no place to stay and no Hotel Reservation. 
-    This is odd, because usually, people are booking their accomodation way
-    in advance within a secure Hotel with Security when visiting.
+    At first, Lanto is hesitant to answer your questions, but after a 
+    while he opens up. 
+    
+    Lanto plans on staying in the city for at least two weeks. 
+
+    He plans to search for his family who got separated during the war. 
+    Unfortunately, he has no place to stay and no Hotel Reservation. 
+    This is odd, because usually, people are booking their accommodation 
+    way in advance within a secure Hotel with Security when visiting.
     """, 
     questioncondition: 0,
     approve: """
@@ -230,23 +231,23 @@ casemap = {
     goodoutcome: """
     A would-be suicide attacker was rejected today at the border crossing. 
     The man was later identified as Lanto Blorg.
-    He tried to cross the border but was rejected. On his way back home his
-    sucide vest went off killing only him.
+    He tried to cross the border but was rejected. On his way back home, 
+    the suicide vest went off but killing only him.
     """,
     goodcondition: False,
     badoutcome: """
-    A Terrorist Attack happend on a public bus this afternoon, killing 15 
-    and injuring 7, including children. 
+    A Terrorist Attack happened on a public bus this afternoon, killing 
+    15 and injuring 7, including children. 
     The individual was later identified as Lanto Blorg and was able to pass
-    the border uniterrupted while carrying a suicide vest. 
+    the border uninterrupted while carrying a suicide vest. 
     """,
     badcondition: False,
     secretoutcome: """
     A Terrorist Attack was prevented today thanks to a new border guard 
     officer on his first day of duty!
-    While searching the would-be terrorist, identified as Lanto Blorg, the 
-    guard noticed a suicide vest. 
-    The guard took immediate action and in such prevented a disaster.
+    While searching for the would-be terrorist, identified as Lanto Blorg,  
+    the guard noticed a suicide vest. 
+    The guard took immediate action and as such prevented a disaster.
     """,
     secretcondition: False,
     nextcase: "c02",
@@ -260,30 +261,30 @@ casemap = {
 
     The passport is unremarkable and the details check out. Dammyra is the 
     individual in the pictures.
-    She wears full make-up (maybe a bit too much) and from the optics, she
-    can be considered beautiful.  
+    She wears full makeup (maybe a bit too much) and from the optics, she
+    can be considered beautiful.
 
-    Her behavior seems to erratic, however, and while talking to you, she
+    Her behavior seems erratic, however, and while talking to you, she
     constantly looks over her shoulder. 
 
-    Maybe she is fleeing something.... or someone.      
+    Maybe she is fleeing something.... or someone. 
     """,
     luggage: """
-    Dammyra's luggage is hastely thrown together. Crucial items are missing. 
+    Dammyra's luggage is hastily thrown together. Crucial items are missing. 
 
-    There is not toothbrush and very few personal items besides clothing. 
-     
-    You find a worn-out Teddybear and a picture of Dammyra in a much younger
-    age with an older woman. Both woman look happy. 
-        
-    You find a small amount of Marihuana in a alittle plastic bag at the 
+    There is no toothbrush and very few personal items besides clothing. 
+
+    You find a worn-out teddy bear and a picture of Dammyra at a much younger
+    age with an older woman. Both women look happy. 
+
+    You find a small amount of Marihuana in a little plastic bag at the 
     bottom of the suitcase. 
-        
+
     The amount is small, but it is still illegal. 
     """,
     luggagecondition: 0,
     search: """
-    You search Dammyra. She is visibly uncomfortable.  
+    You search Dammyra. She is visibly uncomfortable.
 
     There is no forbidden item on her body, but her body shows signs of 
     violence. 
@@ -291,63 +292,62 @@ casemap = {
     The heavy make-up she is wearing covers up a bruise beneath her left 
     eye and on her chest, there are multiple bruises. 
 
-    The injuries are not fresh. Maybe 4 days to a 2 weeks old and in 
+    The injuries are not fresh. Maybe 4 days to 2 weeks old and in 
     different stages of healing. 
 
-    You also find a name tatooed on her left thigh and her arms show heavy 
+    You also find a name tattooed on her left thigh and her arms show heavy 
     signs of substance abuse.
 
     This might be a mark of a pimp. 
     """,
     searchcondition: 0,
     question: """
-    Dammyra claims to be visiting her sister.  
+    Dammyra claims to be visiting her sister.
 
     While questioning Dammyra becomes nervous and gives answers that don't 
-    add up.  
-    The adress she provides does not exist and she changes the name of her 
+    add up. 
+    The address she provides does not exist and she changed the name of her 
     sister during the interview. 
 
-    After being called on it, she breaks and begings to cry and sob 
-    uncotrolably. 
+    After being called on it, she breaks and begins to cry and sob 
+    uncontrollably. 
 
     She now claims to be going back home after being obducted 5 years ago 
     by a group of human-traffickers.
 
     She was able to flee this morning.
 
-    She might be lying but in the end her story checks out and you hand her 
-    over to the authorities.   
+    She might be lying but in the end, her story checks out and you hand her 
+    over to the authorities.
     """,
     questioncondition: 3, 
     approve: """
     When you stamp her passport, you can see the relief on Dammyra's face. 
-    She passes the border uniterrupted. 
+    She passes the border uninterrupted. 
     """,
     approvecondition: 1,
     deny: """
-    Dammyra is visibly upset and frightend. She hestitates to walk back, but
-    in the en, she gives up and leaves. 
+    Dammyra is visibly upset and frightened. She hesitates to walk back, but
+    in the end, she gives up and leaves. 
     """, 
     denycondition: 2,
     solved: False,
     condition: 0,
-    goodoutcome: """
-   
+    goodoutcome: """   
     A group of criminals roaming a neighborhood tonight was arrested by the 
     police.
     When questioned the police found evidence that the group was looking for
-    young woman that was reported missing 5 years ago.
+    a young woman who was reported missing 5 years ago.
     The woman did not show up at home one night and was presumed dead. 
     """,
     goodcondition: False,
     badoutcome: """
-    A woman later idetified as Dammyra de Brillaal was refused entry at the 
+    A woman later identified as Dammyra de Brillaal was refused entry to the 
     border today and was later found dead.
-    Dammyra went missing from her parents house five years ago and was 
+    Dammyra went missing from her parent's house five years ago and was 
     presumed dead. 
     Her body was found in a dumpster and showed obvious signs of violence. 
-    Our neighbours police force is leading the investigation. 
+    Our neighbor's police force is leading the investigation.  
     """, 
     badcondition: False,
     secretoutcome: """
@@ -355,7 +355,7 @@ casemap = {
     was spüotted entering the country at the border and after showing signs 
     of abuse was handed over to protection agencies. 
     The police said that the information gathered by her could lead to a 
-    breakthrough in a human-trafficking case in both countries. 
+    breakthrough in a human trafficking case in both countries. 
     """,
     secretcondition: False,
     nextcase: "c03",
@@ -367,31 +367,32 @@ casemap = {
     Date of Birth: August.25th, 1965
     Sex: Male
 
-    The passport is old and has only a few days until it's expiration date.
-    Usually, passports must be valid at least 30 days at the point of entry.
+    The passport is old and has only a few days until its expiration date.
+    Usually, passports must be valid for at least 30 days at the point of 
+    entry.
 
-    Tha passport marks Solomon as a member of medical aid group.
+    The passport marks Solomon as a member of the medical aid group.
 
     The Picture is quite dated. He has full hair and a beard, but you can 
     see that the individual presenting to you is the same. But 10-15 years
-    older.      
+    older.  
     """,
     luggage: """
-    During the search through Solomons luggage you find clothing, personal
-    hygene products, a notebook and a few books on medicine. 
+    During the search through Solomons's luggage, you find clothing, 
+    personal hygiene products, a notebook, and a few books on medicine. 
 
-    You also find a letter from the WHO recommending Solomon for work on a 
-    viral outbreak in the country after the war. 
+    You also find a letter from the WHO recommending Solomon for work on 
+    the viral outbreak in the country after the war. 
 
-    You approve Solomon's Entry request regardles of his passport validity
+    You approve Solomon's Entry request regardless of his passport validity
     and give the Ministry of Health a call. 
 
-    The MoH is already expecting him and are sending a vahicle to pick him 
+    The MoH is already expecting him and is sending a vehicle to pick him 
     up right away.   
     """,
     luggagecondition: 3,
     search: """
-    Solomon is embaressed by the search procedure. 
+    Solomon is embarrassed by the search procedure. 
 
     You find nothing of value. 
     
@@ -401,46 +402,46 @@ casemap = {
     question: """
     Solomon seems bothered by your questions and a bit annoyed. 
 
-    After a while he claims to work for the World Health Organisation and he
-    claims to be an expert viologist. 
+    After a while, he claims to work for the World Health Organisation and 
+    he claims to be an expert virologist. 
 
-    He want's to help after the war.   
+    He wants to help after the war.   
     """,
     questioncondition: 0, 
     approve: """ 
-    You approve Solomons entry request and he slowly walks to the taxis
-    waiting outside.   
+    You approve Solomons's entry request and he slowly walks to the taxis
+    waiting outside.
     """,
     approvecondition: 1,
     deny: """
-    You deny Solomons request for entry. He seems irritated by that, but 
-    after a short while he says: 'Fine. I go on vacation. I don't like 
-    being here anyway.' and walks away.  
+    You deny Solomons's request for entry. He seems irritated by that, but 
+    after a short while, he says: 'Fine. I go on vacation. I don't like 
+    being here anyway.' and walks away.  
     """,
     denycondition: 2,
     solved: False,
     condition: 0,
     goodoutcome: """
     The famous WHO Virologist: Dr. Solomon Candlegorn arrived today in our
-    glorious nation to help with a viulent outbreak in the most devestated 
-    parts of the country. Unfortunately, Dr. Candelgorn stuck in traffic 
+    glorious nation to help with a violent outbreak in the most devestated 
+    parts of the country. Unfortunately, Dr. Candelgorn was stuck in traffic 
     so he wasn't able to begin work right away. This may lead to some more 
     people getting infected. 
     """,
     goodcondition: False,
     badoutcome: """ 
-    The famous WHO Virologist: Dr. Solomon Candlegorn was sheduled to arrive
-    today in our glorious nation, but was held up and refused entry by a new
-    guard at the border. It is unclear when he will be able to visit again,
+    The famous WHO Virologist: Dr. Solomon Candlegorn was scheduled to arrive
+    today in our glorious nation but was held up and refused entry by a new
+    guard at the border. It is unclear when he will be able to visit again
     because he is currently missing. This might lead to a significant 
     outbreak or even a pandemic. 
     """,
     badcondition: False,
     secretoutcome: """  
-    The famous WHO Virologist: Dr. Solomon Candlegorn arrived today in our
-    glorious nation to help with a viulent outbreak in the most devestated 
+    The famous WHO Virologist: Dr. Solomon Candlegorn arrived today at our
+    glorious nation to help with a violent outbreak in the most devastated 
     parts of the country. A Rookie Border Guard spotted the famous scientist
-    and fasttracked his entry so he was able to avoid traffic and got to 
+    and fast-tracked his entry so he was able to avoid traffic and get to 
     work right away. 
     """,
     secretcondition: False,
@@ -457,32 +458,32 @@ casemap = {
     the woman presenting to you. But the passport shows signs of damage and
     some stains that look like blood. 
 
-    Adettel looks roughed up. A woman who is obviously fond of hard labour 
+    Adettel looks roughed up. A woman who is obviously fond of hard labor 
     and doesn't use make-up very often. She wears a bandana and work-out 
     old military clothing. 
 
-    You recognize Adettel from somewhere. Maybe and old school acquaintance
+    You recognize Adettel from somewhere. Maybe an old school acquaintance
     or someone on TV. 
-    
-    You cannot tell.      
+ 
+    You cannot tell. 
     """,
     luggage: """
     Adettel is visibly uncomfortable while you are going through her case. 
 
-    You find a few dirty clothes and personal hygene items. 
+    You find a few dirty clothes and personal hygiene items. 
 
-    Wrapped in a old rags you find leaflets and something that looks like 
+    Wrapped in old rags you find leaflets and something that looks like 
     a political manifest that Adettel seems to be the author of.
-    On closer inspection, you realize the items as being communist 
+    On closer inspection, you realize the items are communist 
     propaganda. 
 
     Owning propaganda is not illegal, but now you realize where you have 
-    seen Adettel before. During the war, she led a gurellia group and was 
-    responsible for horrible warcrimes. 
+    seen Adettel before. During the war, she led a guerilla group and was 
+    responsible for horrible war crimes. 
 
     You arrest Adettel and hand her over to the Police. 
 
-    Adettel curses you on her way out in handcuffs.        
+    Adettel curses you on her way out in handcuffs.   
     """,
     luggagecondition: 3,
     search: """
@@ -497,7 +498,7 @@ casemap = {
     question: """ 
     Adettel claims to be visiting friends and family. 
 
-    The adresses and the hotel she booked for herself check out positive. 
+    The addresses and the hotel she booked for herself check out positive. 
 
     Her story seems to be correct.    
     """,
@@ -510,29 +511,28 @@ casemap = {
     deny: """ 
     Adettel is angry after being rejected. She is not willing to leave but 
     after being forced out by two officers the finally gives up and leaves.  
-    #24###################################################################### 
     """,
     denycondition: 1,
     solved: False,
     condition: 0,
     goodoutcome: """ 
-    The infamous Communist Gurellia Gang "The Red Sun" is loosing supports
-    in both nations. Adettel Hovelweir, leader of the gang an most-wanted 
+    The infamous Communist Gurellia Gang "The Red Sun" is losing support
+    in both nations. Adettel Hovelweir, leader of the gang a most-wanted 
     is still at large, but the group seems to be unable to gain a foothold
-    in new terretory since the war ended. 
+    in new territory since the war ended. 
     """,
     goodcondition: False,
     badoutcome: """ 
     Today, leaflets and propaganda material from the infamous guerilla gang
     "The Red Sun" surfaced on the streets of our glorious nation. Adettel 
     Hovelweir, leader of the group and one of the most wanted terrorists in
-    both nations was briefly spotted on the streets on the capital. 
+    both nations was briefly spotted on the streets of the capital. 
     """,
     badcondition: False,
     secretoutcome: """ 
     The infamous Adettel Hovelweir, leader of the communist Gurellia Force
-    "The Red Sun" was cought today at the border by a young officer. The 
-    group was responsible for nomerous warcrimes, including terror attacks. 
+    "The Red Sun" was caught today at the border by a young officer. The 
+    group was responsible for numerous war crimes, including terror attacks.
     """,
     secretcondition: False,      
     nextcase: "c05",
@@ -550,14 +550,14 @@ casemap = {
     is her.       
     """,
     luggage: """ 
-    Old clothing, old photos and memorabilia. 
+    Old clothing, old photos, and memorabilia. 
 
     You find some gold statues and valuables that might have value, but you 
-    can see, that it is very personal. And old nacklace with a picture 
+    can see, that it is very personal. An old necklace with a picture 
     catches your eye. It shows a much younger version of Aspermeia with a 
     young officer. 
     After thinking about it for a while, you realize the officer is General
-    Elam Al Shaabaai, a famous war hero of our nation. But you don't recall
+    Elam Al Shaabaai, is a famous war hero of our nation. But you don't recall
     whether he is alive or dead. 
 
     You find also some heart medicine and pain medication. 
@@ -566,7 +566,7 @@ casemap = {
     """,
     luggagecondition: 0,
     search: """
-    Aspermeia is embaressed by the search procedure. 
+    Aspermeia is embarrassed by the search procedure. 
 
     You find nothing of value. 
     
@@ -579,25 +579,25 @@ casemap = {
     She was away from home for too long. She is sick and came here to live
     the remainder of her life in peace. 
 
-    After all these years, she wants to see who is stil alive in her town. 
+    After all these years, she wants to see who is still alive in her town. 
 
     She wants to find her Brother Elam and his family. 
 
     You let her pass and give her the way to the NGO that helps refugees 
     to connect with lost loved ones. 
 
-    Aspermeia is gratefull that you approved her request and promisses to 
+    Aspermeia is grateful that you approved her request and promises to 
     bring you a cake in the coming days. 
     """,
     questioncondition: 3, 
     approve: """ 
-    Aspermeia is gratefull that you approve her entry request and thanks
+    Aspermeia is grateful that you approved her entry request and thanks
     you on her way into the country. 
     """,
     approvecondition: 1,
     deny: """ 
-    Aspermeia is devestated and doesn't realy know what to do now. 
-    She staggers towards the exit leading back and braks down in tears.
+    Aspermeia is devastated and doesn't know what to do now. 
+    She staggers towards the exit leading back and breaks down in tears.
     """,
     denycondition: 2,
     solved: False,
@@ -849,11 +849,10 @@ def setup_game():
     setup_01 = """
     Welcome to the border rookie!              
  
-    We have fought a long and bloody war againt our neighbors and a lot of 
+    We have fought a long and bloody war against our neighbors and a lot of 
     good people died!
 
-    But thanks to the might of our army and our glorious overlords we have 
-    won!
+    But thanks to the might of our army and our glorious overlords we won!
 
     The situation on the border now is stable, but don't be fooled! Even the 
     tiniest spark can reignite hostilities.
@@ -861,8 +860,8 @@ def setup_game():
     to seize the opportunity. Contraband Items, Weapons, Human-Traffiking, we 
     got it all!
     There are also a lot of great folks out here. Folks that we need to let 
-    it. Aid-Workers, Refugees, displaced people and folks that are looking for
-    a way home. 
+    in. Aid workers, Refugees, displaced people, and folks that are simply
+    looking for a way home. 
 
     If we want to have a bright future with our neighbors, we have to make 
     this work!. 
