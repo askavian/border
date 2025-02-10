@@ -65,7 +65,9 @@ Sometimes, there are secret outcomes, by asking the right questions.
 
 #### Design
 
-The Design is completely set 
+The Design orients itself on old, text-based rpgs. 
+
+The text flows naturally instead of printing out entire blocks and the image greeting the player at start makes full use of the available space.
 
 ## Testing
 
@@ -81,11 +83,21 @@ The Design is completely set
 
 #### PEP8 Linter
 
-**Result: No errors found.**
+**PLEASE NOTE** I did not use any autocorrection tools for the PEP8 Format (i.e. autopep8)
+This is due to the fact, that the visual presentation is heavily reliant on empty spaces and sometimes empty print commands. 
 
-However, the validation returned 29 Warnings in regards to either ES6 Version or the Mozilla Browser. 
+The visual style might be limited by fully committing to PEP8in autopep.
 
-![CI Phython Linter](/assets/images/readme/jshint.png)
+**Result: Comments below.**
+
+I have drasticlly reduced the number of comments from Phython Linter, but there are still some remaining. 
+
+Biggest issues for Phython Linter are:
+- E122 continuation line missing indentation or outdented **PLEASE NOTE** I keep it the way it is due to better readability of the code. This is in the Case Library Section.
+- E501 line too long **PLEASE NOTE** This is due to me making comments after a line. I use overhead comments for Headlines in code, but no visible line to the user is effected. 
+- W291 trailing whitespace **PLEASE NOTE** I have reduced the number drastiacally, but there are still some left. 
+
+![CI Phython Linter](/assets/images/pythonlinter.webp)
 
 ## Bugs
 
@@ -149,8 +161,6 @@ To further improve the typing game, I would add the following features:
 - The 40k Name Generator to create completely outlandish names so that the game is completely fictional [Warhammer 40.000 Name Generator](https://www.realmofplastic.com/warhammer-40k-blog/imperial-citizens-40k-character-name-generator).
 
 ## Finished Product
-
-Screenshots can be found below. 
 
 Thank you for reading this. I hope you enjoy my work!
 
