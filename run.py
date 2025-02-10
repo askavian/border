@@ -454,99 +454,174 @@ casemap = {
     Sex: Female
 
     The passport shows no obvious signs of forgery and the picture shows 
-    the woman presenting to you. 
+    the woman presenting to you. But the passport shows signs of damage and
+    some stains that look like blood. 
+
+    Adettel looks roughed up. A woman who is obviously fond of hard labour 
+    and doesn't use make-up very often. She wears a bandana and work-out 
+    old military clothing. 
 
     You recognize Adettel from somewhere. Maybe and old school acquaintance
-    or someone on TV. You cannot tell.      
+    or someone on TV. 
+    
+    You cannot tell.      
     """,
     luggage: """
-    Name: Adettel Hovelweir
-    Date of Birth: September.11th, 1987
+    Adettel is visibly uncomfortable while you are going through her case. 
+
+    You find a few dirty clothes and personal hygene items. 
+
+    Wrapped in a old rags you find leaflets and something that looks like 
+    a political manifest that Adettel seems to be the author of.
+    On closer inspection, you realize the items as being communist 
+    propaganda. 
+
+    Owning propaganda is not illegal, but now you realize where you have 
+    seen Adettel before. During the war, she led a gurellia group and was 
+    responsible for horrible warcrimes. 
+
+    You arrest Adettel and hand her over to the Police. 
+
+    Adettel curses you on her way out in handcuffs.        
+    """,
+    luggagecondition: 3,
+    search: """
+    Adettel makes some snarky remarks while you search her. But she is not 
+    resisting. 
+
+    It is probably not the first time for her.  
+
+    She has old scars and bruises all over her body.      
+    """,
+    searchcondition: 0,
+    question: """ 
+    Adettel claims to be visiting friends and family. 
+
+    The adresses and the hotel she booked for herself check out positive. 
+
+    Her story seems to be correct.    
+    """,
+    questioncondition: 0, 
+    approve: """ 
+    Adettel looks at you with a cold gaze for a light moment and then 
+    nods and passes the border.     
+    """,
+    approvecondition: 2,
+    deny: """ 
+    Adettel is angry after being rejected. She is not willing to leave but 
+    after being forced out by two officers the finally gives up and leaves.  
+    #24###################################################################### 
+    """,
+    denycondition: 1,
+    solved: False,
+    condition: 0,
+    goodoutcome: """ 
+    The infamous Communist Gurellia Gang "The Red Sun" is loosing supports
+    in both nations. Adettel Hovelweir, leader of the gang an most-wanted 
+    is still at large, but the group seems to be unable to gain a foothold
+    in new terretory since the war ended. 
+    """,
+    goodcondition: False,
+    badoutcome: """ 
+    Today, leaflets and propaganda material from the infamous guerilla gang
+    "The Red Sun" surfaced on the streets of our glorious nation. Adettel 
+    Hovelweir, leader of the group and one of the most wanted terrorists in
+    both nations was briefly spotted on the streets on the capital. 
+    """,
+    badcondition: False,
+    secretoutcome: """ 
+    The infamous Adettel Hovelweir, leader of the communist Gurellia Force
+    "The Red Sun" was cought today at the border by a young officer. The 
+    group was responsible for nomerous warcrimes, including terror attacks. 
+    """,
+    secretcondition: False,      
+    nextcase: "c05",
+    },
+    "c05": {
+    case: "Aspermeia van der Grim",
+    introduction: """
+    Name: Aspermeia van der Grim
+    Date of Birth: March.19th, 1951
     Sex: Female
 
-    The passport shows no obvious signs of forgery and the picture shows 
-    the woman presenting to you. 
+    The passport is temporary and identifies Aspermeia as an early refugee. 
 
-    You recognize Adettel from somewhere. Maybe and old school acquaintance
-    or someone on TV. You cannot tell.      
+    The picture in the passport shows Aspermeia in her younger years, but it
+    is her.       
+    """,
+    luggage: """ 
+    Old clothing, old photos and memorabilia. 
+
+    You find some gold statues and valuables that might have value, but you 
+    can see, that it is very personal. And old nacklace with a picture 
+    catches your eye. It shows a much younger version of Aspermeia with a 
+    young officer. 
+    After thinking about it for a while, you realize the officer is General
+    Elam Al Shaabaai, a famous war hero of our nation. But you don't recall
+    whether he is alive or dead. 
+
+    You find also some heart medicine and pain medication. 
+    The pain medication counts as a drug and cannot be imported without a 
+    license. A license, that Aspermeia doesn't have. 
     """,
     luggagecondition: 0,
     search: """
-    #24#####################################################################  
-    Name: Adettel Hovelweir
-    Date of Birth: September.11th, 1987
-    Sex: Female
+    Aspermeia is embaressed by the search procedure. 
 
-    The passport shows no obvious signs of forgery and the picture shows 
-    the woman presenting to you. But the passport shows signs of damage and
-    some stains that look like blood. 
-
-    Adettel looks roughed up. A woman who is obviously fond of hard labour 
-    and doesn't use make-up very often. She wears a bandana and work-out 
-    old military clothing. 
-
-    You recognize Adettel from somewhere. Maybe and old school acquaintance
-    or someone on TV. 
+    You find nothing of value. 
     
-    You cannot tell.      
+    Just a naked old lady. 
     """,
     searchcondition: 0,
-    question: """
-    #24#####################################################################  
-    Name: Adettel Hovelweir
-    Date of Birth: September.11th, 1987
-    Sex: Female
+    question: """ 
+    Aspermeia breaks in tears while you are questioning her. 
 
-    The passport shows no obvious signs of forgery and the picture shows 
-    the woman presenting to you. But the passport shows signs of damage and
-    some stains that look like blood. 
+    She was away from home for too long. She is sick and came here to live
+    the remainder of her life in peace. 
 
-    Adettel looks roughed up. A woman who is obviously fond of hard labour 
-    and doesn't use make-up very often. She wears a bandana and work-out 
-    old military clothing. 
+    After all these years, she wants to see who is stil alive in her town. 
 
-    You recognize Adettel from somewhere. Maybe and old school acquaintance
-    or someone on TV. 
-    
-    You cannot tell.      
+    She wants to find her Brother Elam and his family. 
+
+    You let her pass and give her the way to the NGO that helps refugees 
+    to connect with lost loved ones. 
+
+    Aspermeia is gratefull that you approved her request and promisses to 
+    bring you a cake in the coming days. 
     """,
-    questioncondition: 0, 
-    approve: "c04 approve",
+    questioncondition: 3, 
+    approve: """ 
+    Aspermeia is gratefull that you approve her entry request and thanks
+    you on her way into the country. 
+    """,
     approvecondition: 1,
-    deny: "c04 deny", 
+    deny: """ 
+    Aspermeia is devestated and doesn't realy know what to do now. 
+    She staggers towards the exit leading back and braks down in tears.
+    """,
     denycondition: 2,
     solved: False,
     condition: 0,
-    goodoutcome: "c04 good outcome",
-        goodcondition: False,
-        badoutcome: "c04 bad outcome",
-        badcondition: False,
-        secretoutcome: "c04 secret outcome",
-        secretcondition: False,      
-        nextcase: "c05",
-    },
-        "c05": {
-        case: "c05 name",
-        introduction: "c05 intro",
-        luggage: "c05 luggage",
-        luggagecondition: 0,
-        search: "c05 search",
-        searchcondition: 0,
-        question: "c05 question",
-        questioncondition: 0, 
-        approve: "c05 approve",
-        approvecondition: 1,
-        deny: "c05 deny", 
-        denycondition: 2,
-        solved: False,
-        condition: 0,
-        goodoutcome: "c05 good outcome",
-        goodcondition: False,
-        badoutcome: "c05 bad outcome",
-        badcondition: False,
-        secretoutcome: "c05 secret outcome",
-        secretcondition: False,
-        nextcase: "",
+    goodoutcome: """ 
+    Aspermeia van der Grim, the sister of General Elam Al Shaabaai returned
+    home today after living and helping in a refugee camp for the past 20
+    years. Her family is taking good care of her. 
+    """,
+    goodcondition: False,
+    badoutcome: """ 
+    Aspermeia van der Grim, the sister of General Elam Al Shaabaai sufferd
+    a fatal heart attack today on the side of a road after being refused 
+    entry into our glorious nation. 
+    """,
+    badcondition: False,
+    secretoutcome: """ 
+    Aspermeia van der Grim, the sister of General Elam Al Shaabaai returned
+    home today after living and helping in a refugee camp for the past 20
+    years. She has been a beacon of hope for refugees and a voice of reason
+    and understanding between both of our nations. 
+    """,
+    secretcondition: False,
+    nextcase: "",
     },
 }
 #### GAME INTERACTIVITY ####
