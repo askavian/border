@@ -636,7 +636,7 @@ def print_currentcase():
 
 def prompt():  
     print("\n" + "===================")
-    print("'search' the luggage, 'question' the individual, 'search' the individual, 'deny' or 'approve' the entry")
+    print("go through 'luggage', 'question' the individual, 'search' the individual, 'deny' or 'approve' the entry")
     print("What would you like to do?\n")
     action = input("> ")
     acceptable_actions = ["luggage", "search", "question", "approve", "deny", "quit"]
@@ -660,10 +660,12 @@ def prompt():
 def player_luggage(action):
     myPlayer.time = myPlayer.time - 8
     speech = casemap[myPlayer.currentcase] [luggage]
+    time.sleep(2.5)
     for character in speech:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
+    time.sleep(2.5)
     if casemap[myPlayer.currentcase] [luggagecondition] == 3:
         casemap[myPlayer.currentcase] [condition] = 3
         casemap[myPlayer.currentcase] [solved] = True
@@ -677,6 +679,7 @@ def player_search(action):
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
+    time.sleep(2.5)
     if casemap[myPlayer.currentcase] [searchcondition] == 3:
         casemap[myPlayer.currentcase] [condition] = 3
         casemap[myPlayer.currentcase] [solved] = True
@@ -690,6 +693,7 @@ def player_question(action):
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
+    time.sleep(2.5)
     if casemap[myPlayer.currentcase] [questioncondition] == 3:
         casemap[myPlayer.currentcase] [condition] = 3
         casemap[myPlayer.currentcase] [solved] = True
@@ -703,6 +707,7 @@ def player_approve(action):
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
+    time.sleep(2.5)
     if casemap[myPlayer.currentcase] [approvecondition] == 1:
         casemap[myPlayer.currentcase] [condition] = 1
         casemap[myPlayer.currentcase] [solved] = True
@@ -721,6 +726,7 @@ def player_deny(action):
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
+    time.sleep(2.5)
     if casemap[myPlayer.currentcase] [denycondition] == 1:
         casemap[myPlayer.currentcase] [condition] = 1
         casemap[myPlayer.currentcase] [solved] = True
@@ -751,7 +757,11 @@ def player_nextcase():
 #### FINAL ASSESSMENT ####
 def final():
    time.sleep(2.5)
-   newsspeech = "Welcome to today's Evening News!\n" # not print because everything will come naturally
+   newsspeech = """
+
+   \n   Welcome to today's Evening News!   \n
+   
+   """    # not print because everything will come naturally
    for character in newsspeech:
         sys.stdout.write(character) 
         sys.stdout.flush() 
@@ -762,55 +772,125 @@ def final():
    if casemap["c01"] [condition] == 3:
        myPlayer.score = myPlayer.score + 20
        print(casemap["c01"] [secretoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    elif casemap["c01"] [condition] == 1:
        myPlayer.score = myPlayer.score + 10
        print(casemap["c01"] [goodoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    elif casemap["c01"] [condition] == 2:
        myPlayer.score = myPlayer.score + 1        
        print(casemap["c01"] [badoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    if casemap["c02"] [condition] == 3:
        myPlayer.score = myPlayer.score + 20
        print(casemap["c02"] [secretoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    elif casemap["c02"] [condition] == 1:
        myPlayer.score = myPlayer.score + 10
        print(casemap["c02"] [goodoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    elif casemap["c02"] [condition] == 2:
        myPlayer.score = myPlayer.score + 1   
        print(casemap["c02"] [badoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    if casemap["c03"] [condition] == 3:
        myPlayer.score = myPlayer.score + 20
        print(casemap["c03"] [secretoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    elif casemap["c03"] [condition] == 1:
        myPlayer.score = myPlayer.score + 10
        print(casemap["c03"] [goodoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    elif casemap["c03"] [condition] == 2:
        myPlayer.score = myPlayer.score + 1   
        print(casemap["c03"] [badoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    if casemap["c04"] [condition] == 3:
        myPlayer.score = myPlayer.score + 20
        print(casemap["c04"] [secretoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    elif casemap["c04"] [condition] == 1:
        myPlayer.score = myPlayer.score + 10
        print(casemap["c04"] [goodoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    elif casemap["c04"] [condition] == 2:
        myPlayer.score = myPlayer.score + 1   
        print(casemap["c04"] [badoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    if casemap["c05"] [condition] == 3:
        myPlayer.score = myPlayer.score + 20
        print(casemap["c05"] [secretoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    elif casemap["c05"] [condition] == 1:
        myPlayer.score = myPlayer.score + 10
        print(casemap["c05"] [goodoutcome] + "\n")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
    elif casemap["c05"] [condition] == 2:
        myPlayer.score = myPlayer.score + 1   
        print(casemap["c05"] [badoutcome] + "\n")
-   print(""
-              
-         "")
+       for character in print:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
+   print("""
+         \n     
+         """)
    newsspeech = """
+
    What a wild day that was, right? Goodnight and stay safe.\n
-   """
-   print("You scored " + str(myPlayer.score) + " out of 100.")
+   
+   """  
+   for character in newsspeech:
+        sys.stdout.write(character) 
+        sys.stdout.flush() 
+        time.sleep(0.05)
+   print("""
+         
+         \n Officer """ + myPlayer.name + """. You scored """ + str(myPlayer.score) + """ out of 100.\n
+         
+         """)
    for character in newsspeech:
         sys.stdout.write(character) 
         sys.stdout.flush() 
