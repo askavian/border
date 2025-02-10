@@ -660,7 +660,6 @@ def prompt():
 def player_luggage(action):
     myPlayer.time = myPlayer.time - 8
     speech = casemap[myPlayer.currentcase] [luggage]
-    time.sleep(2.5)
     for character in speech:
         sys.stdout.write(character) 
         sys.stdout.flush() 
