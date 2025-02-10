@@ -29,6 +29,9 @@
 # only 22 rows are used to give space for command response
 
 
+#
+#  Welcome to:   
+#
 # ██████   ██████  ██████  ██████  ███████ ██████            
 # ██   ██ ██    ██ ██   ██ ██   ██ ██      ██   ██           
 # ██████  ██    ██ ██████  ██   ██ █████   ██████            
@@ -41,6 +44,8 @@
 # ██      ██████  ██    ██ ███████ ███████ ██ ██ ██  ██ ██   ███ 
 # ██      ██   ██ ██    ██      ██      ██ ██ ██  ██ ██ ██    ██ 
 #  ██████ ██   ██  ██████  ███████ ███████ ██ ██   ████  ██████  
+#
+#  A game about tough moral choices and consequences.
 #
 #  by Malte M. Boettcher 
 
@@ -55,7 +60,7 @@ import time # imports time related functions -> used here for text output delay 
 class player:
     def __init__(self):
         self.name = "" # set by player input during setup
-        self.lod = None # Difficulty Level (har, medium, easy)
+        self.lod = None # Difficulty Level (hard, medium, easy)
         self.time = 0 # changes with difficulty level hard = 30 min / medium = 45 min / easy = 60 min
         self.score = 0 # Score between 0 and 100 in the final assessment 
         self.people = 0 # people left in the queue, defined during setup, must be same number as cases in game
@@ -228,7 +233,7 @@ casemap = {
     Lanto Blorg is shouting about racial profiling and why you refuse him. 
     But ultimately he leaves the border crossing and returns home.
     """,
-    denycondition: 1, 
+    denycondition: 1,
     solved: False,
     condition: 0,
     goodoutcome: """
