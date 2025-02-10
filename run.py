@@ -47,43 +47,45 @@
 
 import sys # imports system functions -> used here for "exit" command to close game
 import os # imports operating systems functions -> used here for "clear" command NOT "cls" for Heroku
-import time # imports time related functions -> used here for text output delay time
+import time # imports time related functions -> used here for text output delay time and text flushing
 
 screen_width = 100 # sets output window to full screen 100% width
 
 
 #### PLAYER INITITAL SETUP ####
+
 class player:
     def __init__(self):
-        self.name = "" # set by player input
-        self.lod = None # Difficulty Level
+        self.name = "" # set by player input during setup
+        self.lod = None # Difficulty Level (har, medium, easy)
         self.time = 0 # changes with difficulty level hard = 30 min / medium = 45 min / easy = 60 min
-        self.score = 0 # Score between 0 and 100
-        self.people = 0 # people left in the queue
-        self.currentcase = "c01"
+        self.score = 0 # Score between 0 and 100 in the final assessment 
+        self.people = 0 # people left in the queue, defined during setup, must be same number as cases in game
+        self.currentcase = "c01" # is set to the current case, always start wit c01
         self.game_over = False # primary game condition
 myPlayer = player() # sets myPlayer to player class
 
 
 #### TITLE SCREEN AND SETUP ####
+# First thing to greed the player
 
-def title_screen_selections():
+def title_screen_selections(): # defines the options on the title screen
     option = input("> ")
     if option.lower() == ("play"):
-        setup_game() # placeholder until written
+        setup_game() # calls setup_game to begin game
     elif option.lower() == ("help"):
-        help_menu() # placeholder until written
+        help_menu() # calls the help menu
     elif option.lower() == ("quit"):
-        sys.exit() # system function to exit program
-    while option.lower() not in ["play", "help", "quit"]: # shows options while player is undecided
+        sys.exit() # quits the game by exiting the application. To restart, restart the browser window
+    while option.lower() not in ["play", "help", "quit"]: # repeats valid options if wrong input, needed for error prevention
         print("Please enter a valid command.")
         option = input("> ")
         if option.lower() == ("play"):
-            setup_game() # placeholder until written
+            setup_game() 
         elif option.lower() == ("help"):
             help_menu()
         elif option.lower() == ("quit"):
-            sys.exit() # system function to exit program
+            sys.exit() 
 
 def title_screen():
     os.system("clear")
@@ -111,6 +113,7 @@ def title_screen():
     print("      - Quit - Exits the game                                                   ")
     title_screen_selections()
 
+# Only accessible from start screen
 def help_menu():
     print("                                                                                ")
     print("    HELP MENU:                                                                  ")
@@ -137,32 +140,34 @@ def help_menu():
     title_screen_selections()
 
 
-#### CASES OPTIONS ####
+#### CASES VARIABLES ####
+# These variables define all values that are used in each case
 
-case = "CASE"
-introduction = "INTRO" #personal data and passport
+case = "CASE" #not in use bit remains in the code for organizational reasons
+introduction = "INTRO" #stores the introduction and main data. Always replays after a non-ending option is taken
 luggage = "LUGGAGE" # to examine the belongings of an individual
-luggagecondition = "LUGGCOND" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-search = "SEARCH" # to stripsearch an
-searchcondition = "SEARCOND" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+luggagecondition = "LUGGCOND" # can only be 0 or 3 and set if a secret outcome is here
+search = "SEARCH" # to stripsearch an individual
+searchcondition = "SEARCOND" # can only be 0 or 3 and set if a secret outcome is here
 question = "QUESTION" # to inquire about the reasons for enter 
-questioncondition = "QUESCOND" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+questioncondition = "QUESCOND" # can only be 0 or 3 and set if a secret outcome is here
 approve = "APPROVE" # approves the request and let the individual pass the border
-approvecondition = "APPRCOND" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
+approvecondition = "APPRCOND" # # can only be 1 (good) or 2 (bad) and set if a regular outcome is here
 deny = "DENY" # deny the entry request and prevents the individual from entering 
-denycondition = "DENYCOND" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-solved = "SOLVED" # sets a boolean for if a case has already been closed
-condition = "CONDITION" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome if available)
-goodoutcome = "GOODOUT" # text for good outcome
-goodcondition = "GOODCOND" # For storing outcome
-badoutcome = "BADOUT" # text for bad outcome
-badcondition = "BADCOND" # For storing outcome boolean
-secretoutcome = "SECOUT" # text for secret outcome
-secretcondition = "SECCOND" # For storing outcome
-nextcase = "NEXT" # next case in line
+denycondition = "DENYCOND" # # can only be 1 (good) or 2 (bad) and set if a regular outcome is here
+solved = "SOLVED" # sets a boolean for if a case has already been closed, used for moving to a next case
+condition = "CONDITION" # 1 (good outcome), 2 (bad outcome), 3 (secret outcome) used for the final assessment
+goodoutcome = "GOODOUT" # text for good outcome for the final assessment
+goodcondition = "GOODCOND" # var for good outcome for the final assessment
+badoutcome = "BADOUT" # text for bad outcome for the final assessment
+badcondition = "BADCOND" # var for bad outcome for the final assessment
+secretoutcome = "SECOUT" # text for secret outcome for the final assessment
+secretcondition = "SECCOND" # var for secret outcome for the final assessment
+nextcase = "NEXT" # defines the next case in line after the current
 
 
 #### CASEMAP ####
+# as a key value map as defined above
 
 casemap = {
     "c01": {
@@ -625,16 +630,16 @@ casemap = {
     },
 }
 #### GAME INTERACTIVITY ####
-def print_currentcase():
+def print_currentcase(): # This function prints the current case from the casemap 
     print("\n" + ("#" * (4 + len(myPlayer.currentcase))))
     print("REQUEST FOR ENTRY: ")
     speech = casemap[myPlayer.currentcase] [introduction]
     for character in speech:
         sys.stdout.write(character) 
         sys.stdout.flush() 
-        time.sleep(0.001)
+        time.sleep(0.001) # this is very short due to this section being repeated after every non-ending answer 
 
-def prompt():  
+def prompt():  # function prompts all the available answers in each case
     print("\n" + "===================")
     print("go through 'luggage', 'question' the individual, 'search' the individual, 'deny' or 'approve' the entry")
     print("What would you like to do?\n")
@@ -643,21 +648,21 @@ def prompt():
     while action.lower() not in acceptable_actions:
         print("That is not a valid Action\n")
         action = input("> ")
-    if action.lower() == "quit":
+    if action.lower() == "quit": # exits the application at any time
         print("Goodbye! Reload the Game to try again.")
         sys.exit()
     elif action.lower() == "luggage":
-        player_luggage(action.lower())
+        player_luggage(action.lower()) # calls the player_luggage function when answer is typed in
     elif action.lower() == "search":
-        player_search(action.lower())
+        player_search(action.lower()) # calls the player_search function when answer is typed in
     elif action.lower() == "question":
-        player_question(action.lower())
+        player_question(action.lower()) # calls the player_question function when answer is typed in
     elif action.lower() == "deny":
-        player_deny(action.lower())
+        player_deny(action.lower()) # calls the player_deny function when answer is typed in
     elif action.lower() == "approve":
-        player_approve(action.lower())
+        player_approve(action.lower()) # calls the player_approve function when answer is typed in
 
-def player_luggage(action):
+def player_luggage(action): # calls the "luggage" answer when typed in above
     myPlayer.time = myPlayer.time - 8
     speech = casemap[myPlayer.currentcase] [luggage]
     for character in speech:
@@ -669,9 +674,9 @@ def player_luggage(action):
         casemap[myPlayer.currentcase] [condition] = 3
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [secretcondition] = True
-        player_nextcase()
+        player_nextcase() # if statement checks if a secret ending is here and if stores outcome and calls player_nextcase
 
-def player_search(action):
+def player_search(action): # calls the "search" answer when typed in above
     myPlayer.time = myPlayer.time - 12
     speech = casemap[myPlayer.currentcase] [search]
     for character in speech:
@@ -683,9 +688,9 @@ def player_search(action):
         casemap[myPlayer.currentcase] [condition] = 3
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [secretcondition] = True
-        player_nextcase()
+        player_nextcase() # if statement checks if a secret ending is here and if stores outcome and calls player_nextcase
 
-def player_question(action):
+def player_question(action): # calls the "question" answer when typed in above
     myPlayer.time = myPlayer.time - 5
     speech = casemap[myPlayer.currentcase] [question]
     for character in speech:
@@ -697,9 +702,9 @@ def player_question(action):
         casemap[myPlayer.currentcase] [condition] = 3
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [secretcondition] = True
-        player_nextcase()
+        player_nextcase() # if statement checks if a secret ending is here and if stores outcome and calls player_nextcase
 
-def player_approve(action):
+def player_approve(action): # calls the "approve" answer when typed in above
     myPlayer.time = myPlayer.time - 1
     speech = casemap[myPlayer.currentcase] [approve]
     for character in speech:
@@ -711,14 +716,14 @@ def player_approve(action):
         casemap[myPlayer.currentcase] [condition] = 1
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [goodcondition] = True
-        player_nextcase()
+        player_nextcase() # if statement checks if a good ending is here and if stores outcome and calls player_nextcase
     elif casemap[myPlayer.currentcase] [approvecondition] == 2:
         casemap[myPlayer.currentcase] [condition] = 2
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [badcondition] = True
-        player_nextcase()
+        player_nextcase() # elif statement checks if a bad ending is here and if stores outcome and calls player_nextcase
 
-def player_deny(action):
+def player_deny(action): # calls the "deny" answer when typed in above
     myPlayer.time = myPlayer.time - 2
     speech = casemap[myPlayer.currentcase] [deny]
     for character in speech:
@@ -730,37 +735,37 @@ def player_deny(action):
         casemap[myPlayer.currentcase] [condition] = 1
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [goodcondition] = True
-        player_nextcase
+        player_nextcase # if statement checks if a good ending is here and if stores outcome and calls player_nextcase
     elif casemap[myPlayer.currentcase] [denycondition] == 2:
         casemap[myPlayer.currentcase] [condition] = 2
         casemap[myPlayer.currentcase] [solved] = True
         casemap[myPlayer.currentcase] [badcondition] = True
-        player_nextcase()
+        player_nextcase() # elif statement checks if a bad ending is here and if stores outcome and calls player_nextcase
 
 
-def player_nextcase():
-    os.system("clear")
-    myPlayer.people = myPlayer.people - 1
-    if myPlayer.people == 0:
+def player_nextcase(): # moves player to next case by updating myPlayer.currentcase to value of nextcase
+    os.system("clear") # clears the screen for the next case
+    myPlayer.people = myPlayer.people - 1 # deducts myPlayer.people by one
+    if myPlayer.people == 0: # if statement if myPlayer.people reaches 0
         endspeech = "Your shift ended Rookie.\n" 
         endspeech = "You can go home now. Get some rest.\n"
         for character in endspeech:
             sys.stdout.write(character)
             sys.stdout.flush()
             time.sleep(0.05)
-        final()
-    else:
+        final() # moves to final for finas assessment and ending
+    else: # else statement if number of people is greater than 0
         myPlayer.currentcase = casemap[myPlayer.currentcase] [nextcase]
 
 
 #### FINAL ASSESSMENT ####
-def final():
+def final(): # produces the final assessment for ending the game
    time.sleep(2.5)
    newsspeech = """
 
    \n   Welcome to today's Evening News!   \n
    
-   """    # not print because everything will come naturally
+   """    # prints the final assessment in form of a news article
    for character in newsspeech:
         sys.stdout.write(character) 
         sys.stdout.flush() 
@@ -768,9 +773,9 @@ def final():
    print(""
                   
          "") 
-   if casemap["c01"] [condition] == 3:
-       myPlayer.score = myPlayer.score + 20
-       print(casemap["c01"] [secretoutcome] + "\n")
+   if casemap["c01"] [condition] == 3: # ALL if/elif statements are checking the individual outcomes of cases
+       myPlayer.score = myPlayer.score + 20 # stores the respective point value in myPlayer.score for final score
+       print(casemap["c01"] [secretoutcome] + "\n") # prints the outcome of a case based on conditions above
        for character in print:
         sys.stdout.write(character) 
         sys.stdout.flush() 
@@ -889,39 +894,39 @@ def final():
          
          \n Officer """ + myPlayer.name + """. You scored """ + str(myPlayer.score) + """ out of 100.\n
          
-         """)
+         """) # displays the final myPlayer.score to the player (between 0 and 100)
    for character in newsspeech:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)  
 
  
-   time.sleep(60) # prevents the game from closing for 60 seconds, to read the outcome
-   myPlayer.game_over = True
+   time.sleep(60) # prevents the game from closing for 60 seconds, to give time read the outcome
+   myPlayer.game_over = True # closes the game loop 
 
 
 #### GAME FUNCTIONALITY ####
-def main_game_loop():
+def main_game_loop(): # main gameloop bring the player always back to the current case if the myPlayer.game_over condition is False
     while myPlayer.game_over is False:
         print("""
               
               You have """ + str(myPlayer.time) + """ minutes remaining until the end of your shift!\n
               
-              """)  
-        print_currentcase()
-        prompt()
+              """)  # displays the remaining time to the player after each action
+        print_currentcase() # prints the myPlayer.currencase from the casemap
+        prompt() # if time reaches 0 the myPlayer.game_over is triggered and the game is lost
         if myPlayer.time < 0: # FAILING CONDITION "run out of time"
             myPlayer.game_over
             print("""
                   You shift ended and there are still people waiting.
                   
                   You Lost!""")
-            sys.exit()
+            sys.exit() # closes the game
 
 
 #### SETUP ####
 
-def setup_game():
+def setup_game(): # initial setup function to set the tone for the player and gather the name and set the difficulty level
     os.system("clear")
 
     ### NAME ###
@@ -953,10 +958,11 @@ def setup_game():
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.03) # gives delay to input of 5 miliseconds
-    player_name = input("> ") # could directly write to myPlayer.name, but keep it seperated to eventually add functionality later
-    myPlayer.name = player_name
+    player_name = input("> ") # could directly write to myPlayer.name, but i keep it seperated to eventually add functionality later
+    myPlayer.name = player_name # stores the player name
 
     ### DIFFICULTY LEVEL LOD ###
+    # the difficulty level can be chosen here
     setup_02 = """
 
     Select your difficulty level!\n
@@ -973,7 +979,7 @@ def setup_game():
         sys.stdout.flush() 
         time.sleep(0.01) # gives delay to input of 1 miliseconds
     player_lod = input("> ") # I could directly write to "myPlayer.lod" but keep it seperated to eventually add functionality later
-    valid_lod = ["hard", "medium", "easy"]
+    valid_lod = ["hard", "medium", "easy"] # only valid values are accepted as the relate to the player stats below
     if player_lod.lower() in valid_lod:
         myPlayer.lod = player_lod
     while player_lod.lower() not in valid_lod:
@@ -983,9 +989,9 @@ def setup_game():
 
 
     #### PLAYER STATS ####
-    if myPlayer.lod == "hard": # USE FOR TIME REMAINING
+    if myPlayer.lod == "hard": # the LoD sets the remaining time for the player based on the chosen entry 
         myPlayer.time = 30
-        myPlayer.people = 5 # Equal to the number of cases
+        myPlayer.people = 5 # Equal to the number of cases can easily be expanded or also used for LoDif more cases are produced
     elif myPlayer.lod == "medium":
         myPlayer.time = 45
         myPlayer.people = 5
@@ -1001,11 +1007,11 @@ def setup_game():
     Great!
 
     Let's get you started. There are already people lining up.\n
-    """
+    """ # final setup functions as a soft handover to the main_game_loop
     for character in setup_03:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.03) # gives delay to input of 5 miliseconds
     main_game_loop()
 
-title_screen() # launches the game and setup
+title_screen() # launches the titel_screen is called first when the game starts

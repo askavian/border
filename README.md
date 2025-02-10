@@ -19,6 +19,8 @@ https://bordercrossing-840fd789a5e7.herokuapp.com/
 
 ASCII Code Generator for Logo https://patorjk.com/software/taag/
 bbtong's text rpg for inspiration (especially visually): https://github.com/bbtong/python-text-rpg/blob/master/exampleTextRPG.py
+Warhammer 40.000 Name Generator (foir unbiased names): https://www.realmofplastic.com/warhammer-40k-blog/imperial-citizens-40k-character-name-generator
+
 
 
 
