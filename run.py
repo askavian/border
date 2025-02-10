@@ -49,8 +49,6 @@ import sys # imports system functions -> used here for "exit" command to close g
 import os # imports operating systems functions -> used here for "clear" command NOT "cls" for Heroku
 import time # imports time related functions -> used here for text output delay time and text flushing
 
-screen_width = 100 # sets output window to full screen 100% width
-
 
 #### PLAYER INITITAL SETUP ####
 
