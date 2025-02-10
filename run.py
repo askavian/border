@@ -778,106 +778,106 @@ def final(): # produces the final assessment for ending the game
          "") 
    if casemap["c01"] [condition] == 3: # ALL if/elif statements are checking the individual outcomes of cases
        myPlayer.score = myPlayer.score + 20 # stores the respective point value in myPlayer.score for final score
-       print(casemap["c01"] [secretoutcome] + "\n") # prints the outcome of a case based on conditions above
-       for character in print:
+       c01sec = casemap["c01"] [secretoutcome] +"\n" # prints the outcome of a case based on conditions above
+       for character in c01sec:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    elif casemap["c01"] [condition] == 1:
        myPlayer.score = myPlayer.score + 10
-       print(casemap["c01"] [goodoutcome] + "\n")
-       for character in print:
+       c01goo = casemap["c01"] [goodoutcome] +"\n"
+       for character in c01goo:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    elif casemap["c01"] [condition] == 2:
        myPlayer.score = myPlayer.score + 1        
-       print(casemap["c01"] [badoutcome] + "\n")
-       for character in print:
+       c01bad = casemap["c01"] [badoutcome] +"\n"
+       for character in c01bad:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    if casemap["c02"] [condition] == 3:
        myPlayer.score = myPlayer.score + 20
-       print(casemap["c02"] [secretoutcome] + "\n")
-       for character in print:
+       c02sec = casemap["c02"] [secretoutcome] +"\n"
+       for character in c02sec:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    elif casemap["c02"] [condition] == 1:
        myPlayer.score = myPlayer.score + 10
-       print(casemap["c02"] [goodoutcome] + "\n")
-       for character in print:
+       c02goo = casemap["c02"] [goodoutcome] +"\n"
+       for character in c02goo:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    elif casemap["c02"] [condition] == 2:
        myPlayer.score = myPlayer.score + 1   
-       print(casemap["c02"] [badoutcome] + "\n")
-       for character in print:
+       c02bad = casemap["c02"] [badoutcome] +"\n"
+       for character in c02bad:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    if casemap["c03"] [condition] == 3:
        myPlayer.score = myPlayer.score + 20
-       print(casemap["c03"] [secretoutcome] + "\n")
-       for character in print:
+       c03sec = casemap["c03"] [secretoutcome] +"\n"
+       for character in c03sec:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    elif casemap["c03"] [condition] == 1:
        myPlayer.score = myPlayer.score + 10
-       print(casemap["c03"] [goodoutcome] + "\n")
-       for character in print:
+       c03goo = casemap["c03"] [goodoutcome] +"\n"
+       for character in c03goo:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    elif casemap["c03"] [condition] == 2:
        myPlayer.score = myPlayer.score + 1   
-       print(casemap["c03"] [badoutcome] + "\n")
-       for character in print:
+       c03bad = casemap["c03"] [badoutcome] +"\n"
+       for character in c03bad:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    if casemap["c04"] [condition] == 3:
        myPlayer.score = myPlayer.score + 20
-       print(casemap["c04"] [secretoutcome] + "\n")
-       for character in print:
+       c04sec = casemap["c04"] [secretoutcome] +"\n"
+       for character in c04sec:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    elif casemap["c04"] [condition] == 1:
        myPlayer.score = myPlayer.score + 10
-       print(casemap["c04"] [goodoutcome] + "\n")
-       for character in print:
+       c04goo = casemap["c04"] [goodoutcome] +"\n"
+       for character in c04goo:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    elif casemap["c04"] [condition] == 2:
        myPlayer.score = myPlayer.score + 1   
-       print(casemap["c04"] [badoutcome] + "\n")
-       for character in print:
+       c04bad = casemap["c04"] [badoutcome] +"\n"
+       for character in c04bad:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    if casemap["c05"] [condition] == 3:
        myPlayer.score = myPlayer.score + 20
-       print(casemap["c05"] [secretoutcome] + "\n")
-       for character in print:
+       c05sec = casemap["c05"] [secretoutcome] +"\n"
+       for character in c05sec:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    elif casemap["c05"] [condition] == 1:
        myPlayer.score = myPlayer.score + 10
-       print(casemap["c05"] [goodoutcome] + "\n")
-       for character in print:
+       c05goo = casemap["c05"] [goodoutcome] +"\n"
+       for character in c05goo:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
    elif casemap["c05"] [condition] == 2:
        myPlayer.score = myPlayer.score + 1   
-       print(casemap["c05"] [badoutcome] + "\n")
-       for character in print:
+       c05bad = casemap["c05"] [badoutcome] +"\n"
+       for character in c05bad:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
@@ -886,25 +886,16 @@ def final(): # produces the final assessment for ending the game
          """)
    newsspeech = """
 
-   What a wild day that was, right? Goodnight and stay safe.\n
+   \n Officer """ + myPlayer.name + """. You scored """ + str(myPlayer.score) + """ out of 100.\n
    
    """  
    for character in newsspeech:
         sys.stdout.write(character) 
         sys.stdout.flush() 
         time.sleep(0.05)
-   print("""
-         
-         \n Officer """ + myPlayer.name + """. You scored """ + str(myPlayer.score) + """ out of 100.\n
-         
-         """) # displays the final myPlayer.score to the player (between 0 and 100)
-   for character in newsspeech:
-        sys.stdout.write(character) 
-        sys.stdout.flush() 
-        time.sleep(0.05)  
 
  
-   time.sleep(60) # prevents the game from closing for 60 seconds, to give time read the outcome
+   time.sleep(10) # prevents the game from closing for 60 seconds, to give time read the outcome
    myPlayer.game_over = True # closes the game loop 
 
 
